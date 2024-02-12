@@ -1,0 +1,101 @@
+.feedbacks {
+    &__slider-controls {
+        position: absolute;
+        top: calc(50% - 16px);
+        right: 16px;
+    }
+
+    &__slider-controls-btn {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'%3E%3Crect width='40' height='40' rx='20' fill='white'/%3E%3Cpath d='M28 20L12 20M28 20L20 12M28 20L20 28' stroke='%23208D6C' stroke-width='1.5'/%3E%3C/svg%3E");
+        background-repeat: no-repeat; 
+        background-size: 100%;  
+
+        &_prev {
+            transform: rotate(-180deg);
+            margin-right: 16px;
+        }
+
+        &:hover,
+        &:focus-visible {
+            border: 1px solid var(--accent-primary-color);
+        }
+    }
+    
+    &__slider-wrap {
+        padding: 8px 4px;
+        border-left: var(--section-border);
+        border-right: var(--section-border);
+    }
+
+    &__slider {
+        display: flex;
+        gap: 12px;
+    }
+
+    &__card {
+        background-color: var(--white-color);
+        border-radius: var(--border-radius-primary);
+        padding: 12px 12px 28px;
+        user-select: none;
+    }
+    
+    &__card-avatar {
+        grid-area: avatar;
+    }
+
+    .star-rate {
+        grid-area: rate;
+    }
+
+    &__card-author {
+        grid-area: author;
+        font-size: 14px;
+        line-height: 1.57;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+
+    &__card-heading {
+        display: grid;
+        grid-template-areas: 'avatar author' 'avatar rate';
+        column-gap: 12px;
+        place-content: start;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    &__card-content {
+        font-size: 14px;
+    }
+
+    @media (min-width: 768px) {
+        &__slider-controls {
+            top: calc(50% - 20px);
+        }
+
+        &__slider-controls-btn {
+            width: 40px;
+            height: 40px;
+        }
+
+        &__slider-wrap {
+            padding: 12px;
+        }
+
+        &__card {
+            padding: 20px 20px 48px;
+        }
+
+        &__card-heading {
+            margin-bottom: 24px;
+        }
+
+        &__card-content {
+            font-size: 18px;
+        }
+    }
+}

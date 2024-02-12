@@ -1,0 +1,199 @@
+.budget-range {
+    max-width: 554px;
+
+    &__heading {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+
+    &__field {
+        height: 63px;
+    }
+    
+    &__input-container.is-focused {
+        position: relative;
+
+        &::before {
+            content: '$';
+            position: absolute;
+            top: 49%;
+            left: 20px;
+            transform: translateY(-50%);
+        }
+    }
+
+    &__input {
+        padding-left: 32px;
+    }
+
+    &__divider {
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    &__content {
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        background-color: var(--white-color);
+        border-radius: var(--border-radius-primary);
+    }
+
+    &__info {
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    &__value {
+        font-weight: 500;
+        font-size: 20px;
+    }
+
+    &__tooltip {
+        position: relative;
+        align-self: center;
+        background-color: var(--background-color);
+        font-size: 12px;
+        max-width: 180px;
+        text-align: center;
+        padding: 12px;
+        border-radius: 8px;
+
+        &::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10' fill='none'%3E%3Cpath fill='%23F6F5F4' d='m6 9.854-5.196-9h10.392L6 9.854Z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            width: 12px;
+            height: 10px;
+            bottom: -9px;
+            left: calc(50% - 6px);
+        }
+    }
+
+    &__banner {
+        background-color: var(--background-color);
+        padding: 8px;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='25' fill='none'%3E%3Cpath stroke='%23208D6C' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 22.5c5.523 0 10-4.477 10-10s-4.477-10-10-10-10 4.477-10 10 4.477 10 10 10ZM12 16.5v-4m0-4h.01'/%3E%3C/svg%3E");
+        background-size: 24px;
+        background-position: left 8px top 20px;
+        border-radius: 8px;
+
+        p {
+            position: relative;
+            padding-left: 36px;
+        }
+    }
+
+    .range-grid {
+        align-self: center;
+        white-space: nowrap;
+
+        &__light-spectrum {
+            display: inline-block;
+            width: 88px;
+            height: 7px;
+            background-color: hsla(162, 63%, 34%, 0.15);
+            border-radius: 14px;
+        }
+
+        &__green-spectrum {
+            position: relative;
+            display: inline-block;
+            width: 154px;
+            height: 7px;
+            background-color: var(--accent-primary-color);
+            border-radius: 14px;
+
+            &::before {
+                position: absolute;
+                content: '';
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: var(--white-color);
+                border: 1px solid var(--main-color);
+                top: calc(50% - 6px);
+                left: calc(50% - 6px);
+            }
+        }
+
+        &__values {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            p {
+                font-size: 12px;
+                font-weight: 500;
+                flex-basis: 88px;
+                text-align: center;
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        &__heading {
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        &__budget-range__min,
+        &__budget-range__max {
+            flex-basis: 252px;
+        }
+
+        &__content {
+            padding: 20px;
+            gap: 24px;
+        }
+
+        &__value {
+            font-size: 24px;
+        }
+
+        &__tooltip {
+            font-size: 16px;
+            padding: 16px;
+            max-width: 256px;
+        }
+
+        &__banner {
+            padding: 16px;
+            background-position: left 12px top 22px;
+        }
+
+        .range-grid {
+            &__light-spectrum {
+                width: 120px;
+                height: 10px;
+            
+            }
+
+            &__green-spectrum {
+                width: 212px;
+                height: 10px;
+    
+                &::before {
+                    width: 16px;
+                    height: 16px;
+                    top: calc(50% - 8px);
+                    left: calc(50% - 8px);
+                }
+            }
+
+            &__values {
+                p {
+                    font-size: 16px;
+                    flex-basis: 120px;
+                }
+            }
+        }
+    }
+}

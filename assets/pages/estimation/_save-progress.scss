@@ -1,0 +1,17 @@
+.save-progress {
+    height: 185px;
+    
+    &__item {
+        & + & {
+            margin-top: 12px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        &__item {
+            & + & {
+                margin-top: 28px;
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+:root {
+    --progress-bar-initial-width-mob: 45px;
+    --progress-bar-initial-width-desk: 163px;
+}
+
+.progress-bar {
+    background-color: var(--accent-primary-color);
+    width: var(--progress-bar-initial-width-mob);
+    height: 6px;
+
+    &_last-step {
+        width: 100%;
+    }
+
+    @media (min-width: 768px) {
+            width: var(--progress-bar-initial-width-desk);
+            height: 8px;
+
+            &_last-step {
+                width: 100%;
+            }
+    }
+}

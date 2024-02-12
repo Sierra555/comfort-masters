@@ -1,0 +1,82 @@
+.button {
+    display: inline-block;
+    background-color: var(--accent-primary-color);
+    color: var(--white-color);
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.42;
+    padding: 20px 24px;
+    text-transform: uppercase;
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    transition: background-color .15s ease-in-out, color .15s ease-in-out;
+
+    &:hover,
+    &:active,
+    &:focus-visible {
+        background-color: var(--accent-secondary-color);
+    }
+
+    &:disabled {
+        background-color: var(--grey-color);
+    }
+
+    &_secondary-bordered {
+        background-color: var(--white-color);
+        color: var(--accent-primary-color);
+        border: 1px solid currentColor;
+
+        &:hover,
+        &:active,
+        &:focus-visible {
+            background-color: var(--accent-secondary-color);
+            color: var(--white-color);
+        }
+    }
+
+    &_secondary-lightest {
+        background-color: var(--accent-secondary-color-lightest);
+        color: var(--main-color);
+
+
+        &:hover,
+        &:active,
+        &:focus-visible {
+            color: var(--white-color);
+        }
+    }
+
+    @media (min-width: 768px) {
+        font-size: 20px;
+        line-height: 1.6;
+    }
+}
+
+.previous-page-button {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    transform: rotate(-180deg);
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='none'%3E%3Cpath stroke='%232D2D2D' stroke-width='1.5' d='M20 11H0m20 0L10 1m10 10L10 21'/%3E%3C/svg%3E");
+
+    &:hover,
+    &:focus-visible {
+        border: 1px solid var(--accent-primary-color);
+    }
+
+    @media (min-width: 768px) {
+        width: 40px;
+        height: 38px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: 22px;
+    }
+}

@@ -1,0 +1,35 @@
+.survey {
+    &__option {
+        display: flex;
+        align-items: center;
+        text-transform: capitalize;
+        background-color: var(--white-color);
+        padding: 16px 12px;
+        gap: 12px;
+        border-radius: var(--border-radius-primary);
+
+        label {
+            cursor: pointer;
+        }
+
+        & + & {
+            margin-top: 12px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        &__option {
+            padding: 20px;
+            gap: 16px;
+        }
+
+        & + & {
+            margin-top: 16px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+        
+    }
+}

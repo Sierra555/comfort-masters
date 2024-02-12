@@ -1,0 +1,101 @@
+.spaces {
+    max-width: 554px;
+
+    &__items-wrap {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+    }
+  
+    &__item {
+        display: inline-block;
+        font-size: 14px;
+        line-height: 1.28;
+        font-weight: 300;
+        background-color: var(--white-color);
+        padding: 8px 12px;
+        border-radius: var(--border-radius-primary);
+        outline: none;
+        text-transform: capitalize;
+        cursor: pointer;
+        transition: background-color .15s ease-in-out, color .15s ease-in-out;
+
+        input {
+            appearance: none;
+        }
+
+        &:hover,
+        &.is-active,
+        &:focus-visible {
+            background-color: var(--accent-secondary-color);
+            color: var(--white-color);
+        }
+    
+        &.is-disabled {
+            background-color: var(--grey-color);
+            &:hover {
+                color: initial;
+            }
+        }
+    }
+
+    &__list-wrap {
+        display: none;
+        padding: 16px;
+        background-color: var(--white-color);
+        border-radius: var(--border-radius-primary);
+
+        p {
+            font-size: 16px;
+            line-height: 1.25;
+            font-weight: 500;
+        }
+
+        &.is-active {
+            display: block;
+        }
+    }
+
+    &__list {
+        li {
+            position: relative;
+            display: flex;
+            text-transform: capitalize;
+            font-size: 14px;
+            line-height: 1.28;
+            padding-top: 8px;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    @media (min-width: 768px) {
+        &__items-wrap {
+            gap: 12px;
+        }
+
+        &__item {
+            padding: 12px 24px;
+            font-size: 16px;
+            line-height: 1.25;
+        }
+
+        &__list-wrap {
+            padding: 20px;
+    
+            p {
+                font-size: 18px;
+                line-height: 1.3;
+            }
+        }
+
+        &__list {
+            li {
+                font-size: 18px;
+                line-height: 1.33;
+                padding-top: 16px;
+            }
+        }
+    }
+}

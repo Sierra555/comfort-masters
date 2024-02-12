@@ -1,0 +1,20 @@
+.renovation {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-primary);
+    padding: 20px;
+
+    p {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.3;
+        padding: 16px 0 8px;
+    }
+
+    @media (min-width: 768px) {
+        p {
+            font-size: 14px;
+            line-height: 1.28;
+            padding: 24px 0 8px;
+        }
+    }
+}

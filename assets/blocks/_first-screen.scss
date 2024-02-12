@@ -1,0 +1,36 @@
+.first-screen {
+    background-color: var(--main-color);
+    color: var(--white-color);
+    font-weight: 500;
+    border-bottom: var(--border-primary);
+
+    &__content {
+        padding: 195px 4px;
+        border-left: var(--border-primary);
+        border-right: var(--border-primary);
+    }
+
+    &__title {
+        font-size: 36px;
+        text-transform: uppercase;
+    }
+    
+    p {
+        margin: 8px 0 24px;
+    }
+
+    @media (min-width: 768px) {
+        &__content {
+            padding: 186px 32px;
+        }
+    
+        &__title {
+            font-size: 80px;
+        }
+
+        p {
+            margin-bottom: 24px 0 40px;
+            font-size: 24px;
+        }
+    }
+}

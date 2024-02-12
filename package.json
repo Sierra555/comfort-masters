@@ -1,0 +1,30 @@
+{
+  "name": "comfort-masters",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "watch": "webpack --watch --mode=development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^6.9.0",
+    "file-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^2.7.7",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.69.7",
+    "sass-loader": "^14.0.0",
+    "style-loader": "^3.3.4",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "apispreadsheets": "^3.0.3",
+    "google-auth-library": "^9.6.3",
+    "googleapis": "^132.0.0",
+    "tiny-slider": "^2.9.4"
+  }
+}

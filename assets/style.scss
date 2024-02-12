@@ -1,0 +1,31 @@
+//blocks
+@import './blocks/_config',
+'./blocks/_reset',
+'./blocks/_main', 
+'./blocks/_button',
+'./blocks/_input',
+'./blocks/_star-rate',
+'./blocks/_clear-text-btn',
+'./blocks/_header',
+'./blocks/_menu',
+'./blocks/_first-screen',
+'./blocks/_benefits',
+'./blocks/_feedbacks',
+'./blocks/_section',
+'./blocks/_services',
+'./blocks/_service-page',
+'./blocks/_contact-us',
+'./blocks/_banner',
+'./blocks/_footer';
+
+//components
+
+@import './pages/estimation/estimation',
+'./pages/estimation/how-to-start',
+'./pages/estimation/address',
+'./pages/estimation/progress-bar',
+'./pages/estimation/spaces',
+'./pages/estimation/survey',
+'./pages/estimation/save-progress',
+'./pages/estimation/renovation',
+'./pages/estimation/budget-range';

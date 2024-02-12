@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../dist/css/styles.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+</head>
+<body>
+    <main class="estimation">
+        <div class="container">
+            <form class="js-estimation-form">
+                <div class="estimation__wrapper estimation__wrapper_pb_70 js-step-1">
+                    <div class="estimation__heading">
+                        <a class="estimation__close-btn" href="/">Exit</a>
+                    </div>
+                    <div class="estimation__inner">
+                        <div class="progress-bar js-progress-bar progress-bar_step-1"></div>
+                        <h2 class="estimation__title estimation__title_step-1">How would you like to start?</h2>
+                        <div class="how-to-start">
+                            <div class="how-to-start__card">
+                                <div class="how-to-start__img">
+                                    <img srcset="../assets/images/estimation/get-estimation.png 1x, ../assets/images/estimation/get-estimation@2x.png 2x" aria-hidden="true" alt="get estimation">
+                                </div>
+                                <p class="how-to-start__title">Get a starting estimate</p>
+                                <p class="how-to-start__subtitle">Answer a few questions to get started on an estimate for your renovation.</p>
+                                <button type="button" class="button js-next-step-btn js-get-estim-btn" data-step="1">Get my estimate</button>
+                            </div>
+                            <div class="how-to-start__card">
+                                <div class="how-to-start__img">
+                                    <img srcset="../assets/images/estimation/book-call.png 1x, ../assets/images/estimation/book-call@2x.png 2x" aria-hidden="true" alt="get estimation">
+                                </div>
+                                <p class="how-to-start__title">Talk to an expert</p>
+                                <p class="how-to-start__subtitle">Book a complimentary consultation with a Block renovation consultant to discuss your remodel goals.</p>
+                                <a href="tel:+15512607818" class="button">Call (551) 260 78 18</a>
+                                <button type="button" class="button button_secondary-bordered js-calendly-popup">Book a call</button> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="estimation__wrapper js-step-2 js-validate-data" style="display: none;">
+                    <div class="estimation__heading">
+                        <button type="button" class="previous-page-button js-prev-step-btn js-step-btn" aria-label="Go back to the previous step" data-step="2"></button>
+                        <a class="estimation__close-btn" href="/">Exit</a>
+                    </div>
+                    <div class="estimation__inner">
+                        <div class="progress-bar js-progress-bar"></div>
+                        <div class="estimation__content">
+                            <div class="estimation__col">
+                            <h2 class="estimation__title">Where do you plan to renovate?</h2>
+                            <p class="estimation__subtitle">Providing project details ensures that your estimate is highly tailored through a mix of proprietary and publicly available data. Our prices are adjusted for your area.</p>
+                            </div>
+                            <div class="estimation__col">
+                                <div class="address js-input-container" data-is-valid="false">
+                                    <label for="addressInput" class="visually-hidden">Zip code or address</label> 
+                                    <div class="input-container">
+                                        <input type="text" name="address" id="addressInput" class="input js-address-input js-text-input" autocomplete="off" placeholder="Zip code or address" maxlength="100">
+                                        <button type="button" class="clear-text-btn js-clear-input-btn"></button>
+                                    </div>
+                                    <p class="error-message visually-hidden js-error-message">This field is required</p>
+                                    <ul class="address__list js-address-list"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="estimation__footer"> 
+                        <div class="estimation__next-btn-wrap">
+                            <button type="button" class="estimation__next-btn button js-next-step-btn js-step-btn" disabled data-step="2">Next</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="estimation__wrapper js-step-3 js-validate-data" style="display: none;">
+                    <div class="estimation__heading">
+                        <button type="button" class="previous-page-button js-prev-step-btn js-step-btn" aria-label="Go back to the previous step" data-step="3"></button>
+                        <a class="estimation__close-btn" href="/">Exit</a>
+                    </div>
+                    <div class="estimation__inner">
+                        <div class="progress-bar js-progress-bar"></div>
+                        <div class="estimation__content">
+                            <div class="estimation__col">
+                            <h2 class="estimation__title">What do you want to renovate?</h2>
+                            <p class="estimation__subtitle">You can adjust these details later, but the more accurate you are now, the better your estimate will be. Your room details let us understand if your layout is unique or if there are signs that additional work may be needed.</p>
+                            </div>
+                            <div class="estimation__col">
+                                <div class="spaces">  
+                                    <div class="spaces__items-wrap js-spaces-options-container">     
+                                        <button type="button" class="spaces__item">Addition</button>
+                                        <button type="button" class="spaces__item">Attic</button>
+                                        <button type="button" class="spaces__item">Basement</button>
+                                        <button type="button" class="spaces__item">Bedroom</button>
+                                        <button type="button" class="spaces__item">Foyer</button>
+                                        <button type="button" class="spaces__item">Garage</button>
+                                        <button type="button" class="spaces__item">House Exterior</button>
+                                        <button type="button" class="spaces__item">Kitchen</button>
+                                        <button type="button" class="spaces__item">Laundry</button>
+                                        <button type="button" class="spaces__item">Living Space</button>
+                                        <button type="button" class="spaces__item">Roofing</button>
+                                        <button type="button" class="spaces__item">Deck</button>
+                                        <button type="button" class="spaces__item">Yard</button>
+                                        <button type="button" class="spaces__item">Something Else</button>
+                                        <button type="button" class="spaces__item">Whole Home</button>
+                                    </div>
+                                    <div class="spaces__list-wrap js-spaces-container">
+                                        <p>Your Spaces</p>
+                                        <ul class="spaces__list js-spaces-list" data-is-valid="false"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="estimation__footer"> 
+                        <div class="estimation__next-btn-wrap">
+                            <button type="button" class="estimation__next-btn button js-next-step-btn js-step-btn" onclick="createRenovationBlock()" disabled data-step="3">Next</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="estimation__wrapper js-step-4 js-validate-data" style="display: none;">
+                    <div class="estimation__heading">
+                        <button type="button" class="previous-page-button js-prev-step-btn js-step-btn" aria-label="Go back to the previous step" data-step="4"></button>
+                        <a class="estimation__close-btn" href="/">Exit</a>
+                    </div>
+                    <div class="estimation__inner">
+                        <div class="progress-bar js-progress-bar"></div>
+                        <div class="estimation__content estimation__content_g_80">
+                            <div class="estimation__col">
+                            <h2 class="estimation__title whs-nowrap@md">What’s the status of your project?</h2>
+                            </div>
+                            <div class="estimation__col">
+                                <div class="survey js-survey-container">
+                                    <div class="survey__option">
+                                        <input class="input-radio js-survey-option" type="radio" name="survey" id="ready" value="ready" data-is-valid="false">
+                                        <label for="ready">I’m ready to start my renovation and need help finding a contractor</label>
+                                    </div>
+                                    <div class="survey__option">
+                                        <input class="input-radio js-survey-option" type="radio" name="survey" id="planning" value="planning" data-is-valid="false">
+                                        <label for="planning">I’m planning to renovate in the next 6-12 months and need guidance</label>
+                                    </div>
+                                    <div class="survey__option">
+                                        <input class="input-radio js-survey-option" type="radio" name="survey" id="browsing" value="browsing" data-is-valid="false">
+                                        <label for="browsing">I’m just browsing</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="estimation__footer"> 
+                        <div class="estimation__next-btn-wrap">
+                            <button type="button" class="estimation__next-btn button js-next-step-btn js-step-btn" disabled data-step="4">Next</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="estimation__wrapper js-step-5 js-validate-data" style="display: none;">
+                    <div class="estimation__heading">
+                        <button type="button" class="previous-page-button js-prev-step-btn js-step-btn" aria-label="Go back to the previous step" data-step="5"></button>
+                        <a class="estimation__close-btn" href="/">Exit</a>
+                    </div>
+                    <div class="estimation__inner">
+                        <div class="progress-bar js-progress-bar"></div>
+                        <div class="estimation__content">
+                            <div class="estimation__col">
+                            <h2 class="estimation__title">Save your progress to receive estimates</h2>
+                            <p class="estimation__subtitle">And don't worry— all contact information is protected, and only used to tell you more about your estimate.</p>
+                            <div class="estimation__img-wrap">
+                                <img srcset="../assets/images/estimation/get-estimation.png 1x, ../assets/images/estimation/get-estimation@2x.png 2x" aria-hidden="true" alt="get estimation">
+                            </div>
+                            </div>
+                            <div class="estimation__col">
+                                <div class="save-progress js-input-container" data-is-valid="false">
+                                    <div class="save-progress__item">
+                                        <div class="input-container">
+                                            <input class="input js-text-input js-name-input" type="text" name="userName" id="create-name" placeholder="First & Last name" minlength="3" maxlength="40">
+                                            <label class="visually-hidden" for="create-name">First & Last name</label>
+                                            <button type="button" class="clear-text-btn js-clear-input-btn"></button>
+                                        </div>
+                                        <p class="error-message visually-hidden js-error-message">Please enter a valid name (3 to 40 characters)</p>
+                                    </div>
+                                    <div class="save-progress__item">
+                                        <div class="input-container">
+                                            <input class="input js-text-input js-email-input" type="email" name="userEmail" id="create-email" placeholder="Email">
+                                            <label class="visually-hidden" for="create-email" minlength="3" maxlength="40" autocomplete="off">Email</label>
+                                            <button type="button" class="clear-text-btn js-clear-input-btn"></button>
+                                        </div>
+                                        <p class="error-message visually-hidden js-error-message">Please enter a valid email address</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="estimation__footer"> 
+                        <div class="estimation__next-btn-wrap">
+                            <button type="button" class="estimation__next-btn button js-next-step-btn js-step-btn" disabled data-step="5">Next</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="estimation__wrapper js-step-6 js-validate-data" style="display: none;">
+                    <div class="estimation__heading">
+                        <button type="button" class="previous-page-button js-prev-step-btn js-step-btn" aria-label="Go back to the previous step" data-step="6"></button>
+                        <a class="estimation__close-btn" href="/">Exit</a>
+                    </div>
+                    <div class="estimation__inner">
+                        <div class="progress-bar js-progress-bar"></div>
+                        <div class="estimation__content">
+                            <div class="estimation__col">
+                            <h2 class="estimation__title">What is your renovation budget?</h2>
+                            </div>
+                            <div class="estimation__col">
+                                <div class="budget-range">
+                                    <div class="budget-range__heading js-input-container">
+                                        <div class="budget-range__field">
+                                            <div class="budget-range__input-container">
+                                                <label for="minBudget" class="visually-hidden">Enter your minimal budget</label>
+                                                <input class="budget-range__input input js-budget-input js-text-input" id="minBudget" type="text" placeholder="Min" name="minBudget" data-is-valid="false" pattern="\d{3,7}">
+                                                <button type="button" class="clear-text-btn js-clear-input-btn"></button>
+                                            </div>
+                                            <p class="error-message visually-hidden js-error-message" id="minValueMessage">Please enter from 3 to 7 numbers</p>
+                                        </div>
+                                        <p class="budget-range__divider">to</p>
+                                        <div class="budget-range__field">
+                                            <div class="budget-range__input-container">
+                                                <label for="maxBudget" class="visually-hidden">Enter your maximal budget</label>
+                                                <input class="budget-range__input input js-budget-input js-text-input" id="maxBudget" type="text" placeholder="Max" name="maxBudget" data-is-valid="false" pattern="\d{3,7}">
+                                                <button type="button" class="clear-text-btn js-clear-input-btn"></button>
+                                            </div>
+                                            <p class="error-message visually-hidden js-error-message" id="maxValueMessage">Please enter from 3 to 7 numbers</p>
+                                        </div>
+                                    </div>
+                                    <div class="budget-range__content">
+                                        <p class="budget-range__info">Similar renovations nationally have cost between</p>
+                                        <p class="budget-range__value js-budget-value">$ 10 000 - $ 15 000</p>
+                                        <p class="budget-range__tooltip">Most relevations fall in this range</p>
+                                        <div class="range-grid">
+                                            <span class="range-grid__light-spectrum"></span>
+                                            <span class="range-grid__green-spectrum"></span>
+                                            <span class="range-grid__light-spectrum"></span>
+                                            <div class="range-grid__values">
+                                                <p class="js-calc-min-value">$ 10 000 </p>
+                                                <p class="js-calc-max-value">$ 15 000</p>
+                                            </div>
+                                        </div>
+                                        <div class="budget-range__banner"><p class="budget-range__info">Data is based on thousands of renovations in your area. Cost will vary based on materials, scope, and quality.</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>     
+                    <div class="estimation__footer"> 
+                        <div class="container">
+                            <div class="estimation__footer-inner">
+                                <div class="estimation__next-btn-wrap">
+                                    <button type="button" class="estimation__next-btn button js-next-step-btn js-step-btn" disabled data-step="6">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="estimation__wrapper estimation_last-step js-last-step js-step-8" style="display: none;">
+                <div class="estimation__heading">
+                    <button type="button" class="previous-page-button js-last-step-prev-btn js-prev-step-btn js-step-btn" aria-label="Go back to the previous step" data-step="8"></button>
+                    <a class="estimation__close-btn" href="/">Exit</a>
+                </div>
+                <div class="estimation__main-inner">
+                    <div class="progress-bar progress-bar_last-step js-progress-bar"></div>
+                    <div class="estimation__content">
+                        <h2 class="estimation__title ta-center">Your estimate is ready. get it and walk through it with a block renovation consultant!</h2>
+                        <button type="button" class="button estimation__book-call-btn js-calendly-popup">Book a call</button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../assets/js/modules/spaces.js" async></script>
+    <script src="../assets/js/modules/calendly.js" async></script>
+    <script src="../assets/js/modules/nominatim.js" async></script>
+    <script src="../assets/js/modules/handle-input.js" async></script>
+    <script src="../assets/js/modules/validate-data.js" async></script>
+    <script src="../assets/js/modules/form-navigation.js" async></script>
+    <script src="../assets/js/modules/upload-files.js" async defer></script>   
+    <script src="../assets/js/modules/toggle-description.js" async defer></script> 
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="../assets/js/modules/post-data.js" async></script>
+</body>
+</html>

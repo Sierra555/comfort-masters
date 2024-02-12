@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./dist/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+</head>
+<body>
+  <header class="header js-header">
+    <div class="container">
+      <div class="header__inner">
+        <div class="header__wrap">
+          <a class="header__logo" href="/" aria-label="Home page">
+            <img srcset="./assets/images/logo.png 1x, ./assets/images/logo@2x.png 2x" alt="Comfort Masters">
+          </a>
+          <button class="header__hamburger js-menu-hamburger" aria-controls="header-menu" aria-expanded="false" type="button">
+            <span class="header__hamburger-text visually-hidden">Menu</span>
+            <span class="header__hamburger-icon"><span></span></span>
+          </button>
+        </div>
+        <nav class="menu-v2">
+          <ul class="menu-v2__list">
+            <li><a class="link" href="#services">Services</a></li>
+            <li><a class="link" href="#contacts">Contacts</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <nav class="menu js-menu">
+      <ul class="menu__list">
+        <li><a class="link" href="#services">Services</a></li>
+        <li><a class="link" href="#contacts">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="first-screen" aria-labelledby="first-screen-title">
+      <div class="container">
+        <div class="first-screen__content">
+          <h1 class="first-screen__title" id="first-screen-title">Your comfort, our expertise!</h1>
+          <p>Your comfort, our expertise! Your comfort, our expertise! Your comfort, our expertise!</p>
+          <a href="./estimation/estimation.html" class="button">get free estimation</a>
+        </div>
+      </div>
+    </section>
+    <section class="benefits" aria-label="Our benefits">
+      <div class="container">
+        <div class="benefits__content">
+          <p class="benefits__title">Unlock the pinnacle of comfort with Comfort Masters Construction!</p>
+          <ul class="benefits__list">
+            <li>Top quality contractors</li>
+            <li>Warranty & Price protections</li>
+            <li>Expert resources</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section feedbacks" aria-label="Our Feedbacks">
+      <div class="container">
+        <div class="section__heading">
+          <p class="section__title">Our feedbacks</p>
+          <div class="feedbacks__slider-controls js-feedbacks-slider-controls" aria-label="Carousel Navigation" tabindex="0">
+            <button type="button" class="feedbacks__slider-controls-btn feedbacks__slider-controls-btn_prev" tabindex="-1" data-js-controls="prev"></button>
+            <button type="button" class="feedbacks__slider-controls-btn" tabindex="-1" data-js-controls="next"></button>
+          </div>
+        </div>
+      </div>
+      <div class="section__content">
+        <div class="container">
+          <div class="feedbacks__slider-wrap">
+            <div class="feedbacks__slider js-feedbacks-slider">
+              <div class="feedbacks__card">
+                <div class="feedbacks__card-heading">
+                  <img srcset="./assets/images/avatar.jpg, ./assets/images/avatar@2x.jpg 2x" alt="feedback's author" class="feedbacks__card-avatar">
+                  <p class="feedbacks__card-author">Sarah Thompson</p>
+                  <div class="star-rate"></div>
+                </div>
+                <div class="feedbacks__card-content"> Exceptional service from Comfort Masters! They transformed my kitchen into a masterpiece, and their attention to detail during the house building process was unparalleled. Kudos to the team for making our dream home a reality.</div>
+              </div>
+              <div class="feedbacks__card">
+                <div class="feedbacks__card-heading">
+                  <img srcset="./assets/images/avatar.jpg, ./assets/images/avatar@2x.jpg 2x" alt="feedback's author" class="feedbacks__card-avatar">
+                  <p class="feedbacks__card-author">Michael and Emily Davis</p>
+                  <div class="star-rate"></div>
+                </div>
+                <div class="feedbacks__card-content">Comfort Masters exceeded our expectations with their bathroom remodeling services. The attention to design and quality during the interior remodeling was remarkable. Our home in Los Angeles now reflects true comfort and style. Highly recommend!</div>
+              </div>
+              <div class="feedbacks__card">
+                <div class="feedbacks__card-heading">
+                  <img srcset="./assets/images/avatar.jpg, ./assets/images/avatar@2x.jpg 2x" alt="feedback's author" class="feedbacks__card-avatar">
+                  <p class="feedbacks__card-author">Robert Garcia</p>
+                  <div class="star-rate"></div>
+                </div>
+                <div class="feedbacks__card-content">A huge shoutout to Comfort Masters for their outstanding work on our house construction project. From concept to completion, they showcased professionalism and expertise. Our new home in Los Angeles is a testament to their commitment to excellence.</div>
+              </div>
+              <div class="feedbacks__card">
+                <div class="feedbacks__card-heading">
+                  <img srcset="./assets/images/avatar.jpg, ./assets/images/avatar@2x.jpg 2x" alt="feedback's author" class="feedbacks__card-avatar">
+                  <p class="feedbacks__card-author">William and Amanda Clark</p>
+                  <div class="star-rate"></div>
+                </div>
+                <div class="feedbacks__card-content">Incredible transformation! Comfort Masters turned our outdated kitchen into a modern marvel. Their house building expertise and dedication to perfection are commendable. Our family in Los Angeles is enjoying every corner of our new home.</div>
+              </div>
+              <div class="feedbacks__card">
+                <div class="feedbacks__card-heading">
+                  <img srcset="./assets/images/avatar.jpg, ./assets/images/avatar@2x.jpg 2x" alt="feedback's author" class="feedbacks__card-avatar">
+                  <p class="feedbacks__card-author">Daniel Miller</p>
+                  <div class="star-rate"></div>
+                </div>
+                <div class="feedbacks__card-content">Choosing Comfort Masters for our bathroom remodeling was the best decision we made. Their attention to detail and commitment to delivering on time made the entire process stress-free. Our Los Angeles home is now a haven of comfort and elegance.</div>
+              </div>
+            </div>
+         </div>
+        </div>
+      </div>
+    </section>
+    <section class="banner">
+      <div class="container">
+        <div class="banner__inner">
+          <p class="banner__title">Your comfort, our expertise!</p>
+          <a href="./estimation/step-1.html" class="button">get free estimation</a>
+        </div>
+      </div>
+    </section>
+    <section class="section services" id='services' aria-label="Services">
+      <div class="container">
+        <div class="section__heading">
+          <p class="section__title">Services</p>
+        </div>
+      </div>
+        <div class="section__content">
+            <div class="services__inner">
+              <div class="container">
+                <div class="services__items-wrap"> 
+                    <div class="services__item">
+                      <a href="./services/house-remodeling.html">   
+                        <picture>
+                          <source srcset="./assets/images/services/house.webp 1x,./assets/images/services/house@2x.webp 2x" type="image/webp" width="596" height="428">
+                          <img class="services__img" srcset="./assets/images/services/house.png 1x, ./assets/images/services/house@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
+                        </picture>
+                        <div class="services__item-footer">
+                          <p class="services__title">House Remodeling</p>
+                          <div class="services__stroke"><img  width="20" height="20" aria-hidden="true" alt="Go to House Remodeling page" src="./assets/images/stroke.svg"></div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="services__item">
+                      <a href="./services/kitchen-remodeling.html">   
+                        <picture>
+                          <source srcset="./assets/images/services/kitchen.webp 1x,./assets/images/services/kitchen@2x.webp 2x" type="image/webp" width="596" height="428">
+                          <img class="services__img" srcset="./assets/images/services/kitchen.png 1x, ./assets/images/services/kitchen@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
+                        </picture>
+                        <div class="services__item-footer">
+                          <p class="services__title">Kitchen Remodeling</p>
+                          <div class="services__stroke"><img  width="20" height="20" aria-hidden="true" alt="Go to Kitchen Remodeling page" src="./assets/images/stroke.svg"></div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="services__inner">
+              <div class="container">
+                <div class="services__items-wrap"> 
+                  <div class="services__item">
+                    <a href="./services/house-remodeling.html">   
+                      <picture>
+                        <source srcset="./assets/images/services/bathroom.webp 1x,./assets/images/services/bathroom@2x.webp 2x" type="image/webp" width="596" height="428">
+                        <img class="services__img" srcset="./assets/images/services/bathroom.png 1x, ./assets/images/services/bathroom@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
+                      </picture>
+                      <div class="services__item-footer">
+                        <p class="services__title">Bathroom Remodeling</p>
+                        <div class="services__stroke"><img  width="20" height="20" aria-hidden="true" alt="Go to Bathroom Remodeling page" src="./assets/images/stroke.svg"></div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="services__item">
+                    <a href="#">
+                      <picture>
+                        <source srcset="./assets/images/services/room.webp 1x,./assets/images/services/room@2x.webp 2x" type="image/webp" width="596" height="428">
+                        <img class="services__img" srcset="./assets/images/services/room.png 1x, ./assets/images/services/room@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
+                      </picture>
+                      <div class="services__item-footer">
+                        <p class="services__title">Room Additions</p>
+                        <div class="services__stroke"><img  width="20" height="20" aria-hidden="true" alt="Go to Room Additions page" src="./assets/images/stroke.svg"></div>
+                      </div>
+                    </a>
+                  </div>
+              </div>
+            </div>
+            </div>
+          </div>
+              <div class="services__inner">
+                <div class="container">
+                  <div class="services__items-wrap">  
+                    <div class="services__item">
+                      <a href="#">
+                        <picture>
+                          <source srcset="./assets/images/services/roof.webp 1x,./assets/images/services/roof@2x.webp 2x" type="image/webp" width="596" height="428">
+                          <img class="services__img" srcset="./assets/images/services/roof.png 1x, ./assets/images/services/roof@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
+                        </picture>
+                        <div class="services__item-footer">
+                          <p class="services__title">Roof, Stucco & Paint</p>
+                          <div class="services__stroke"><img  width="20" height="20" aria-hidden="true" alt="Go to Roof, Stucco & Paint" src="./assets/images/stroke.svg"></div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="services__item">
+                      <a href="#">                
+                      <picture>
+                        <source srcset="./assets/images/services/landscape.webp 1x,./assets/images/services/landscape@2x.webp 2x" type="image/webp" width="596" height="428">
+                        <img class="services__img" srcset="./assets/images/services/landscape.png 1x, ./assets/images/services/landscape@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
+                      </picture>
+                      <div class="services__item-footer">
+                          <p class="services__title">Landscaping & Patios</p>
+                          <div class="services__stroke"><img  width="20" height="20" aria-hidden="true" alt="Go to Landscaping & Patios page" src="./assets/images/stroke.svg"></div>
+                      </div>
+                      </a>
+                    </div>
+                  </div>
+                 </div>
+              </div>
+          </div>
+      </div>
+    </section>
+    <section class="section contact-us" id='contacts' aria-label="Contact us" >
+      <div class="container">
+        <div class="section__heading">
+          <p class="section__title">Contact us</p>
+        </div>
+      </div>
+        <div class="section__content">
+          <div class="container">
+            <div class="contact-us__inner">
+              <picture>
+                <source srcset="./assets/images/contact-us/contact-us-map.webp 1x,./assets/images/contact-us/contact-us-map@2x.webp 2x" type="image/webp" width="742" height="372">
+                <img class="contact-us__img" srcset="./assets/images/contact-us/contact-us-map.png 1x, ./assets/images/contact-us/contact-us-map@2x.png 2x" alt="Our Location" width="742" height="372" decoding="async" aria-hidden="true">
+              </picture>
+              <div class="contact-us__info">
+                <dl class="contact-us__contacts">
+                  <dt>Email</dt>
+                  <dd><a class="link" href="mailto:sales@confortmasters.com">sales@confortmasters.com</a></dd>
+                  <dt>Address</dt>
+                  <dd>5520 Alhambra Ave, Los Angeles, CA 90032</dd>
+                  <dt>Phone</dt>
+                  <dd><a class="link" href="tel:+15512607818">(551) 260 78 18</a></dd>
+                </dl>
+                <ul class="contact-us__media">
+                  <li><a href="#"><span class="contact-us__media-icon contact-us__media-icon_facebook"></span></a></li>
+                  <li><a href="#"><span class="contact-us__media-icon contact-us__media-icon_instagram"></span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+  </main>
+  <footer class="section">
+    <div class="section__content">
+      <div class="container">
+        <p class="footer__company-name">© Comfort Masters 2023</p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+  <script src="./dist/bundle.js" async></script>
+</body>
+</html>

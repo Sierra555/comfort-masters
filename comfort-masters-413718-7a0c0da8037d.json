@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "comfort-masters-413718",
+  "private_key_id": "7a0c0da8037d148db604060157bf2aaf60d17e95",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDiBPUH15JTSrWT\nm3zW2Mz+p+U+pBkDRUnVwjyUr3OMkVwO0a19nBgrgjAJ0FUSPkZ4j3D0cccPWzJI\nxgh6u3tEWbk7lvs1mITqTcQqJo5c0NWD7ILI1oaYxBNUswfeS9zSelBkaOW8TxbM\noQPDFwxGgxfRjk4cHFWCHh0ks7yj6IWJJU8zHutBOOqlNOjcp5TcoBXwI33C4CrG\n6ZWUtFsdhw/rKBb5mOldK9pheFFSkvYcHWzepD8beUYbhE40UsUHv59MUCsFVmI4\njA2psY5/ns0rynerblRxQTjXq755LkRX8C1cFpeObeNS9hn5ttrzZHakxrmGC5Bp\nTqfsl2sdAgMBAAECggEAO6TgPpIKOLWx5gJ1tsKekiMfUWD/gsfxnJm13+zO+szP\nNM/rTwb2r+CaqbRTBs3tTdpYjgFKbQh9ZAvyZ+T6ugZNZebJYxLdHHGqLw9eqSqo\n9bffqX1HJqAzk7ns/SIa42ZIub6exYs/cn+ZHQ4DfMYSbof1n+BwRjaJLUrLIJt4\nTY7Zjogn5av/aKe7FWuhYiLY2OTlks2bNnoRgg7rgBHkT/408V2Zq/V41afajsUH\n7kYvup78bubjvL4IFPA6t9BGH7SP6+hHDMYgNCOHJBYFKKAqw+DIYyat3yKnSzkh\nli3aagfC7OvQb+BCXgsbOaVw8ti2hVVYqsgJCctS9wKBgQD0Kyd8yBks7hOkF/8y\nDQZ/DflRZ06oPb9LfxfT69tvNWvo9nrayqSngZnozC6phcXuXrtHwz2Pd9yDQqR/\nK27X717tWvbD+cPL5+pKBc0FmtPMeRiFANf/xJ95jRwbSjTFDziZDU/eamyn3lM3\nTacGh1NjtYQb/wkFOAjOgMW3JwKBgQDs+Kq2UypMjHoR5bBmdDqLZLylWYTyLpGZ\nflFPFk/m/Co3IQvtTOYTdW5zWpYGd4XjD/Tws7bt1yZF9v4+u+nM5j38AcFC+sij\nhJfVB3M/dRWWnzXYpKDpGVMnUVzHB4FP3g1McZ5V5THYbL5iepmbQkq4cX1ByfLF\nkjuhg9pWGwKBgGElhll8V5/rvX7NWWi1i/8jNS4xNzdzEdhc4cMclTsC+0M+RhUl\nCSvoQa9BBdPG+MBliof741Ngsii7bC14v2pEv/UZ+xJwHnnTdQEsm6z+NASnrZzF\ngCswNO8suKEW/jXlX3RtunhYyZBkwaFAURMk5oXGY6Cr8Q/VgpN+4quDAoGAeKDI\nvdEt+hOUXCHxHuZRmv2nrgAY1fNwuJL9ruWrvOhmUPPoj16SzBr+I4hcUGRtaj2I\nMTM6jm30FK97ktGzXVNjADKgf4kLs3lelNmbCBWA7NCU53g+VQpIMv6O3N3sLIzb\nditsL0thiUspyxWftdIUGTnkSiYUCBC9fCWTcjsCgYASGDXbdAhU+Zuw5NNTH4la\nNzvFQCzTDfm5uwG5K91tHGdDdvqNwzgAXQlJ7k8w4ZWEDoLrPnV1B+KtCJ2o8Cb4\nG7OU2vY82FzLUZanwqXs8hMzgf3uSBWJ0w7nu6+amMWV6OTmEDtnv5j5rtAFI4ud\nrKVQCYGVqMtGkl5TLsDm8w==\n-----END PRIVATE KEY-----\n",
+  "client_email": "comfort-masters@comfort-masters-413718.iam.gserviceaccount.com",
+  "client_id": "100187214766917776440",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/comfort-masters%40comfort-masters-413718.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

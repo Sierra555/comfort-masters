@@ -1,0 +1,33 @@
+:root {
+    --banner-border: var(--border-primary);
+}
+
+.banner {
+    border-top: var(--banner-border);
+    border-bottom: var(--banner-border);
+
+    &__inner {
+        padding: 40px 25px;
+        border-right: var(--banner-border);
+        border-left: var(--banner-border);
+        text-align: center;
+    }
+
+    &__title {
+        font-size: 28px;
+        line-height: 1.2;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+
+    @media (min-width: 768px) {
+        &__inner {
+            padding: 52px 0;
+        }
+
+        &__title {
+            margin-bottom: 32px;
+        }
+    }
+}
