@@ -5,7 +5,7 @@
         display: flex;
         gap: 8px;
         flex-wrap: wrap;
-        margin-bottom: 12px;
+        margin-bottom: 12px; 
     }
   
     &__item {
@@ -45,6 +45,8 @@
         padding: 16px;
         background-color: var(--white-color);
         border-radius: var(--border-radius-primary);
+        max-height: 300px; 
+        overflow: scroll;
 
         p {
             font-size: 16px;

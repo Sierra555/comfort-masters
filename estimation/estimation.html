@@ -99,6 +99,10 @@
                                         <button type="button" class="spaces__item">Roofing</button>
                                         <button type="button" class="spaces__item">Deck</button>
                                         <button type="button" class="spaces__item">Yard</button>
+                                        <button type="button" class="spaces__item">Painting</button>
+                                        <button type="button" class="spaces__item">Stucco</button>
+                                        <button type="button" class="spaces__item">Room Additions</button>
+                                        <button type="button" class="spaces__item">Bathroom</button>
                                         <button type="button" class="spaces__item">Something Else</button>
                                         <button type="button" class="spaces__item">Whole Home</button>
                                     </div>
@@ -112,7 +116,7 @@
                     </div>
                     <div class="estimation__footer"> 
                         <div class="estimation__next-btn-wrap">
-                            <button type="button" class="estimation__next-btn button js-next-step-btn js-step-btn" onclick="createRenovationBlock()" disabled data-step="3">Next</button>
+                            <button type="button" class="estimation__next-btn button js-calc-budget js-next-step-btn js-step-btn" onclick="createRenovationBlock()" disabled data-step="3">Next</button>
                         </div>
                     </div>
                 </div>
@@ -161,7 +165,7 @@
                         <div class="estimation__content">
                             <div class="estimation__col">
                             <h2 class="estimation__title">Save your progress to receive estimates</h2>
-                            <p class="estimation__subtitle">And don't worry— all contact information is protected, and only used to tell you more about your estimate.</p>
+                            <p class="estimation__subtitle">And don't worry — all contact information is protected, and only used to tell you more about your estimate.</p>
                             <div class="estimation__img-wrap">
                                 <img srcset="../assets/images/estimation/get-estimation.png 1x, ../assets/images/estimation/get-estimation@2x.png 2x" aria-hidden="true" alt="get estimation">
                             </div>
@@ -245,13 +249,9 @@
                             </div>
                         </div>
                     </div>     
-                    <div class="estimation__footer"> 
-                        <div class="container">
-                            <div class="estimation__footer-inner">
-                                <div class="estimation__next-btn-wrap">
-                                    <button type="button" class="estimation__next-btn button js-next-step-btn js-step-btn" disabled data-step="6">Next</button>
-                                </div>
-                            </div>
+                    <div class="estimation__footer">   
+                        <div class="estimation__next-btn-wrap">
+                            <button type="button" class="estimation__next-btn button js-next-step-btn js-step-btn" disabled data-step="6">Next</button>
                         </div>
                     </div>
                 </div>
@@ -277,9 +277,10 @@
     <script src="../assets/js/modules/nominatim.js" async></script>
     <script src="../assets/js/modules/handle-input.js" async></script>
     <script src="../assets/js/modules/validate-data.js" async></script>
-    <script src="../assets/js/modules/form-navigation.js" async></script>
     <script src="../assets/js/modules/upload-files.js" async defer></script>   
     <script src="../assets/js/modules/toggle-description.js" async defer></script> 
+    <script src="../assets/js/modules/budget-range.js" async></script> 
+    <script src="../assets/js/modules/form-navigation.js" async defer></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="../assets/js/modules/post-data.js" async></script>
 </body>

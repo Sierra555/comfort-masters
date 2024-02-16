@@ -2,11 +2,8 @@
     width: 100%;
     background-color: var(--white-color);
     border-bottom: var(--border-primary);
-
-    &.sticky {
-        position: fixed;
-        z-index: 50;
-    }
+    position: fixed;
+    z-index: 50;
     
     &__inner {
         padding: 16px 4px;

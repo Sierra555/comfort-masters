@@ -5,9 +5,7 @@
 .section {
     &__heading {
         position: relative;
-        padding: 16px 0;
-        border-left: var(--section-border);
-        border-right: var(--section-border);
+        padding: 16px 4px;
     }
 
     &__title {
@@ -22,7 +20,7 @@
 
     @media (min-width: 768px) {
         &__heading {
-             padding: 40px 0;
+             padding: 40px 12px;
         }
 
         &__title {

@@ -23,7 +23,7 @@ function createRenovationBlock() {
                                 </div>
                                 <p>Describe this space and what you want to do with it</p>
                                 <div class="textarea-container">
-                                    <textarea class="input input_bordered textarea js-text-input js-space-desc-textarea" name="spaceDescription" id="description" placeholder="Where is it? What's it like now? What's your idea outcome?" aria-label="Describe your space" maxlength="200"></textarea>
+                                    <textarea class="input input_bordered textarea js-text-input js-space-desc-textare" name="spaceDescription" id="description" placeholder="Where is it? What's it like now? What's your idea outcome?" aria-label="Describe your space" maxlength="200"></textarea>
                                     <button type="button" class="clear-text-btn js-clear-input-btn"></button>
                                 </div>
                                     <p>Upload photos</p>
@@ -31,11 +31,11 @@ function createRenovationBlock() {
                                     <label for="photo-upload-input" class="js-upload-files-label">Drag and drop photo or <u>choose files</u></label>
                                     <input accept="application/pdf,image/jpeg,image/png,image/heic" class="js-upload-files-input" hidden id="photo-upload-input" multiple type="file" name="uploadedFiles">
                                 </div>
+                                <p class="error-message visually-hidden">We accept: .pdf, .jpeg, .png, .heic</p>
                                 <ul class="upload-files-list js-upload-files-list"></ul>
                             </div>
                         </div>
-                            
-                            </div>
+                    </div>
                     </div>
                     <div class="estimation__footer"> 
                         <div class="estimation__next-btn-wrap">
@@ -56,9 +56,6 @@ function createRenovationBlock() {
     stepBtns.forEach(button => {
         button.addEventListener('click', handleStepButtonClick);
     });
-    // const containers = document.querySelectorAll('.js-renovation-form');
 
-    setTimeout(() => {
-        handleFilesUpload();
-    }, 0);
+    handleFilesUpload();
 }

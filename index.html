@@ -10,7 +10,7 @@
 </head>
 <body>
   <header class="header js-header">
-    <div class="container">
+    <div class="container container_header">
       <div class="header__inner">
         <div class="header__wrap">
           <a class="header__logo" href="/" aria-label="Home page">
@@ -39,10 +39,14 @@
 
   <main>
     <section class="first-screen" aria-labelledby="first-screen-title">
+      <video class="first-screen-video" autoplay loop muted preload="auto">
+        <source src="./assets/videos/first-screen.webm" type="video/webm">
+        <source src="./assets/videos/first-screen.mp4" type="video/mp4">
+      </video>
       <div class="container">
         <div class="first-screen__content">
           <h1 class="first-screen__title" id="first-screen-title">Your comfort, our expertise!</h1>
-          <p>Your comfort, our expertise! Your comfort, our expertise! Your comfort, our expertise!</p>
+          <p>Experience Excellence in Home Transformations with Comfort Masters - building reconstruction company!</p>
           <a href="./estimation/estimation.html" class="button">get free estimation</a>
         </div>
       </div>
@@ -169,7 +173,7 @@
               <div class="container">
                 <div class="services__items-wrap"> 
                   <div class="services__item">
-                    <a href="./services/house-remodeling.html">   
+                    <a href="./services/bathroom-remodeling.html">   
                       <picture>
                         <source srcset="./assets/images/services/bathroom.webp 1x,./assets/images/services/bathroom@2x.webp 2x" type="image/webp" width="596" height="428">
                         <img class="services__img" srcset="./assets/images/services/bathroom.png 1x, ./assets/images/services/bathroom@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
@@ -181,8 +185,8 @@
                     </a>
                   </div>
                   <div class="services__item">
-                    <a href="#">
-                      <picture>
+                    <a href="./services/room-additions.html">   
+                       <picture>
                         <source srcset="./assets/images/services/room.webp 1x,./assets/images/services/room@2x.webp 2x" type="image/webp" width="596" height="428">
                         <img class="services__img" srcset="./assets/images/services/room.png 1x, ./assets/images/services/room@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
                       </picture>
@@ -200,7 +204,7 @@
                 <div class="container">
                   <div class="services__items-wrap">  
                     <div class="services__item">
-                      <a href="#">
+                      <a href="./services/roof-stucco-paint.html">   
                         <picture>
                           <source srcset="./assets/images/services/roof.webp 1x,./assets/images/services/roof@2x.webp 2x" type="image/webp" width="596" height="428">
                           <img class="services__img" srcset="./assets/images/services/roof.png 1x, ./assets/images/services/roof@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
@@ -212,8 +216,8 @@
                       </a>
                     </div>
                     <div class="services__item">
-                      <a href="#">                
-                      <picture>
+                      <a href="./services/landscaping-patios.html">   
+                        <picture>
                         <source srcset="./assets/images/services/landscape.webp 1x,./assets/images/services/landscape@2x.webp 2x" type="image/webp" width="596" height="428">
                         <img class="services__img" srcset="./assets/images/services/landscape.png 1x, ./assets/images/services/landscape@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
                       </picture>
@@ -245,7 +249,7 @@
               <div class="contact-us__info">
                 <dl class="contact-us__contacts">
                   <dt>Email</dt>
-                  <dd><a class="link" href="mailto:sales@confortmasters.com">sales@confortmasters.com</a></dd>
+                  <dd><a class="link" href="mailto:comfortmastersteam@gmail.com">comfortmastersteam@gmail.com</a></dd>
                   <dt>Address</dt>
                   <dd>5520 Alhambra Ave, Los Angeles, CA 90032</dd>
                   <dt>Phone</dt>
@@ -269,6 +273,6 @@
     </div>
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
-  <script src="./dist/bundle.js" async></script>
+  <script src="./dist/main.bundle.js" async defer></script>
 </body>
 </html>

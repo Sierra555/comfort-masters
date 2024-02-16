@@ -1,12 +1,13 @@
 const stepBtns = document.querySelectorAll('.js-step-btn');
 const getEstimBtn = document.querySelector('.js-get-estim-btn');
 const lastStep = document.querySelector('.js-last-step');
+const calcBudgetBtn = document.querySelector('.js-calc-budget');
 
 stepBtns.forEach(button => {
     button.addEventListener('click', handleStepButtonClick);
 });
-
 getEstimBtn.addEventListener('click', handleStepButtonClick);
+calcBudgetBtn.addEventListener('click', handleCalcBudget);
 
 function handleStepButtonClick(event) {
     const currentBtn = event.currentTarget;
@@ -45,4 +46,13 @@ function handleStepButtonClick(event) {
     if (window.innerWidth >= 768) {
         progressBar.style.width = `${initialWidthDesk * targetStepNum}px`;
     }
+}
+
+function handleCalcBudget() {
+    const selectedSpaces = document.querySelectorAll('.js-spaces-list li');
+    const range = document.querySelector('.js-budget-value');
+    const minVal = document.querySelector('.js-calc-min-value');
+    const maxVal = document.querySelector('.js-calc-max-value');
+
+    calculateBudgetRandge(selectedSpaces, range, minVal, maxVal);
 }

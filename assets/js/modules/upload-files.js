@@ -1,59 +1,60 @@
 function handleFilesUpload() {
     const container = document.querySelector('.js-estimation-form');
     const maxFileSize = 1024 * 1024 * 5;
+    const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/heic'];
 
-    container.addEventListener('change', (e) => {
-        if (e.target.classList.contains('js-upload-files-input')) {
-            uploadFiles(e);
+    container.addEventListener('change', handleEvent);
+    container.addEventListener('dragover', handleEvent);
+    container.addEventListener('drop', handleEvent);
+
+    function handleEvent(e) {
+        e.preventDefault();
+
+        switch (e.type) {
+            case 'change':
+                if (e.target.classList.contains('js-upload-files-input')) {
+                    uploadFiles(e.target, maxFileSize, allowedTypes);
+                }
+                break;
+
+            case 'drop':
+                if (e.target.classList.contains('js-upload-files-label')) {
+                    e.target.files = e.dataTransfer.files;
+                    uploadFiles(e.target, maxFileSize, allowedTypes);
+                }
+                break;
         }
-    });
+    }
 
-    container.addEventListener('dragover', (e) => {
-        e.preventDefault();
-    });
-
-    container.addEventListener('drop', (e) => {
-        e.preventDefault();
-        e.target.files = e.dataTransfer.files;
-        uploadFiles(e);
-    });
-
-    function uploadFiles(event) {
-        const input = event.target;
-        const container = input.closest('.js-renovation-form');
-        const uploadedFiles = container.querySelector('.js-upload-files-list');
-        const removeBtns = container.querySelectorAll('.js-remove-file-btn');
-
-        const uploadFilesItem = Array.from(input.files).map(file => {
-            return `<li>${file.name}<button class="clear-text-btn is-active js-remove-file-btn"></button></li>`;
-        });
-
-        uploadedFiles.insertAdjacentHTML('beforeend', uploadFilesItem.join(''));
+    function uploadFiles(input, maxFileSize, allowedTypes) {
+        const inputContainer = input.closest('.js-renovation-form');
+        const uploadedFiles = inputContainer.querySelector('.js-upload-files-list');
+        toggleErrorMessage(input, false);
+    
+        const validFiles = Array.from(input.files).filter(file => isValidFile(file, input, maxFileSize, allowedTypes));
+    
+        const uploadFilesItems = validFiles.map(file => `
+            <li>${file.name}<button class="clear-text-btn is-active js-remove-file-btn"></button></li>
+        `);
+    
+        uploadedFiles.insertAdjacentHTML('beforeend', uploadFilesItems.join(''));
+    
+        const removeBtns = inputContainer.querySelectorAll('.js-remove-file-btn');
         removeBtns.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.target.parentElement.remove();
+            button.addEventListener('click', () => {
+                button.parentElement.remove();
             });
         });
-
-        validateFile(maxFileSize, input);
     }
 
-    function validateFile(maxFileSize, input) {
-        if (input.files.length > 0) {
-            const file = input.files[0];
-
-            const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/heic'];
-            if (!allowedTypes.includes(file.type)) {
-                alert('Invalid file type. Please select a valid file.');
-                input.value = '';
-                return;
-            }
-
-            if (file.size > maxFileSize) {
-                alert('File size exceeds the allowed limit. Please select a smaller file.');
-                input.value = '';
-                return;
-            }
+    function isValidFile(file, input, maxFileSize, allowedTypes) {
+        if (!allowedTypes.includes(file.type) || file.size > maxFileSize) {
+            toggleErrorMessage(input, true);
+            input.value = '';
+            return false;
         }
+    
+        return true;
     }
+    
 }

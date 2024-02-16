@@ -73,10 +73,38 @@
     color: var(--main-color);
     background-color: var(--background-color);
   }
+
   .container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 12px;
+    position: relative;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        width: 1px;
+        height: 100%;
+        background-color: hsla(40, 17%, 77%, 1);
+        top: 0;
+    }
+
+    &::before {
+        left: 12px;
+    }
+
+    &::after {
+        right: 12px;
+    }
+
+    &_header {
+      &::before,
+      &::after {
+        content: none;
+      }
+    }
   }
   
   .visually-hidden:not(:focus):not(:active) {

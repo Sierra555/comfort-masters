@@ -1,27 +1,30 @@
 .first-screen {
+    position: relative;
     background-color: var(--main-color);
     color: var(--white-color);
     font-weight: 500;
     border-bottom: var(--border-primary);
 
     &__content {
+        position: relative;
+        z-index: 5;
         padding: 195px 4px;
-        border-left: var(--border-primary);
-        border-right: var(--border-primary);
     }
 
     &__title {
+        max-width: 685px;
         font-size: 36px;
         text-transform: uppercase;
     }
     
     p {
+        max-width: 600px;
         margin: 8px 0 24px;
     }
 
     @media (min-width: 768px) {
         &__content {
-            padding: 186px 32px;
+            padding: 313px 32px 186px;
         }
     
         &__title {
@@ -29,7 +32,7 @@
         }
 
         p {
-            margin-bottom: 24px 0 40px;
+            margin: 24px 0 40px;
             font-size: 24px;
         }
     }

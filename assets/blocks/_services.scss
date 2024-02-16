@@ -5,12 +5,8 @@
 }
 
 .services {
-    &__items-wrap {
-        border-left: var(--services-border);
-        border-right: var(--services-border);
-    }
-
     &__item {
+        margin-left: 1px;
         padding: 12px 12px 20px;
         position: relative;
 

@@ -98,10 +98,8 @@ async function postData(formData) {
             body: formData,
         });
 
-        if (response.ok) {
-            console.log('Data successfully submitted');
-        } else {
-            console.error('Failed to submit data to Google Sheets. Status:', response.status);
+        if (!response.ok) {
+            console.error('Failed to submit data. Status:', response.status);
         }
     } catch (error) {
         console.error('Error:', error);
