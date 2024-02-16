@@ -28,7 +28,7 @@
 
     &__img {
         border-radius: var(--services-border-radius);
-        width: 100%;
+        width: 358px;
         height: 228px;
     }
 
@@ -81,6 +81,7 @@
 
     @media (min-width: 1024px) {
         &__img {
+            width: 848px;
             height: 428px;
         }
     }

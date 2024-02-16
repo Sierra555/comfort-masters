@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Comfort Masters</title>
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="./dist/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
 </head>
@@ -68,8 +69,8 @@
         <div class="section__heading">
           <p class="section__title">Our feedbacks</p>
           <div class="feedbacks__slider-controls js-feedbacks-slider-controls" aria-label="Carousel Navigation" tabindex="0">
-            <button type="button" class="feedbacks__slider-controls-btn feedbacks__slider-controls-btn_prev" tabindex="-1" data-js-controls="prev"></button>
-            <button type="button" class="feedbacks__slider-controls-btn" tabindex="-1" data-js-controls="next"></button>
+            <button type="button" class="feedbacks__slider-controls-btn feedbacks__slider-controls-btn_prev" tabindex="-1" data-js-controls="prev"  aria-label="Carousel previous slide"></button>
+            <button type="button" class="feedbacks__slider-controls-btn" tabindex="-1" data-js-controls="next" aria-label="Carousel next slide"></button>
           </div>
         </div>
       </div>
@@ -79,23 +80,23 @@
             <div class="feedbacks__slider js-feedbacks-slider">
               <div class="feedbacks__card">
                 <div class="feedbacks__card-heading">
-                  <img srcset="./assets/images/avatar.jpg, ./assets/images/avatar@2x.jpg 2x" alt="feedback's author" class="feedbacks__card-avatar">
+                  <img class="feedbacks__card-avatar" srcset="./assets/images/feedbacks/avatar-1.jpg, ./assets/images/feedbacks/avatar-1@2x.jpg 2x" alt="feedback's author">
                   <p class="feedbacks__card-author">Sarah Thompson</p>
                   <div class="star-rate"></div>
                 </div>
-                <div class="feedbacks__card-content"> Exceptional service from Comfort Masters! They transformed my kitchen into a masterpiece, and their attention to detail during the house building process was unparalleled. Kudos to the team for making our dream home a reality.</div>
+                <div class="feedbacks__card-content">Exceptional service from Comfort Masters! They transformed my kitchen into a masterpiece, and their attention to detail during the house building process was unparalleled. Kudos to the team for making our dream home a reality.</div>
               </div>
               <div class="feedbacks__card">
                 <div class="feedbacks__card-heading">
-                  <img srcset="./assets/images/avatar.jpg, ./assets/images/avatar@2x.jpg 2x" alt="feedback's author" class="feedbacks__card-avatar">
+                  <img class="feedbacks__card-avatar" srcset="./assets/images/feedbacks/avatar-2.jpg, ./assets/images/feedbacks/avatar-2@2x.jpg 2x" alt="feedback's author">
                   <p class="feedbacks__card-author">Michael and Emily Davis</p>
                   <div class="star-rate"></div>
                 </div>
                 <div class="feedbacks__card-content">Comfort Masters exceeded our expectations with their bathroom remodeling services. The attention to design and quality during the interior remodeling was remarkable. Our home in Los Angeles now reflects true comfort and style. Highly recommend!</div>
               </div>
-              <div class="feedbacks__card">
+               <div class="feedbacks__card">
                 <div class="feedbacks__card-heading">
-                  <img srcset="./assets/images/avatar.jpg, ./assets/images/avatar@2x.jpg 2x" alt="feedback's author" class="feedbacks__card-avatar">
+                  <img class="feedbacks__card-avatar" srcset="./assets/images/feedbacks/avatar-3.jpg, ./assets/images/feedbacks/avatar-3@2x.jpg 2x" alt="feedback's author">
                   <p class="feedbacks__card-author">Robert Garcia</p>
                   <div class="star-rate"></div>
                 </div>
@@ -103,7 +104,7 @@
               </div>
               <div class="feedbacks__card">
                 <div class="feedbacks__card-heading">
-                  <img srcset="./assets/images/avatar.jpg, ./assets/images/avatar@2x.jpg 2x" alt="feedback's author" class="feedbacks__card-avatar">
+                  <img class="feedbacks__card-avatar" srcset="./assets/images/feedbacks/avatar-4.jpg, ./assets/images/feedbacks/avatar-4@2x.jpg 2x" alt="feedback's author">
                   <p class="feedbacks__card-author">William and Amanda Clark</p>
                   <div class="star-rate"></div>
                 </div>
@@ -111,12 +112,12 @@
               </div>
               <div class="feedbacks__card">
                 <div class="feedbacks__card-heading">
-                  <img srcset="./assets/images/avatar.jpg, ./assets/images/avatar@2x.jpg 2x" alt="feedback's author" class="feedbacks__card-avatar">
+                  <img class="feedbacks__card-avatar" srcset="./assets/images/feedbacks/avatar-5.jpg, ./assets/images/feedbacks/avatar-5@2x.jpg 2x" alt="feedback's author">
                   <p class="feedbacks__card-author">Daniel Miller</p>
                   <div class="star-rate"></div>
                 </div>
                 <div class="feedbacks__card-content">Choosing Comfort Masters for our bathroom remodeling was the best decision we made. Their attention to detail and commitment to delivering on time made the entire process stress-free. Our Los Angeles home is now a haven of comfort and elegance.</div>
-              </div>
+              </div> 
             </div>
          </div>
         </div>
@@ -126,7 +127,7 @@
       <div class="container">
         <div class="banner__inner">
           <p class="banner__title">Your comfort, our expertise!</p>
-          <a href="./estimation/step-1.html" class="button">get free estimation</a>
+          <a href="./estimation/estimation.html" class="button">get free estimation</a>
         </div>
       </div>
     </section>
@@ -143,8 +144,8 @@
                     <div class="services__item">
                       <a href="./services/house-remodeling.html">   
                         <picture>
-                          <source srcset="./assets/images/services/house.webp 1x,./assets/images/services/house@2x.webp 2x" type="image/webp" width="596" height="428">
-                          <img class="services__img" srcset="./assets/images/services/house.png 1x, ./assets/images/services/house@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
+                          <source srcset="./assets/images/services/house.webp 1x,./assets/images/services/house@2x.webp 2x" type="image/webp">
+                          <img class="services__img" srcset="./assets/images/services/house.png 1x, ./assets/images/services/house@2x.png 2x" alt="Kitchen Remodeling" decoding="async">
                         </picture>
                         <div class="services__item-footer">
                           <p class="services__title">House Remodeling</p>
@@ -155,8 +156,8 @@
                     <div class="services__item">
                       <a href="./services/kitchen-remodeling.html">   
                         <picture>
-                          <source srcset="./assets/images/services/kitchen.webp 1x,./assets/images/services/kitchen@2x.webp 2x" type="image/webp" width="596" height="428">
-                          <img class="services__img" srcset="./assets/images/services/kitchen.png 1x, ./assets/images/services/kitchen@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
+                          <source srcset="./assets/images/services/kitchen.webp 1x,./assets/images/services/kitchen@2x.webp 2x" type="image/webp">
+                          <img class="services__img" srcset="./assets/images/services/kitchen.png 1x, ./assets/images/services/kitchen@2x.png 2x" alt="Kitchen Remodeling" decoding="async">
                         </picture>
                         <div class="services__item-footer">
                           <p class="services__title">Kitchen Remodeling</p>
@@ -175,8 +176,8 @@
                   <div class="services__item">
                     <a href="./services/bathroom-remodeling.html">   
                       <picture>
-                        <source srcset="./assets/images/services/bathroom.webp 1x,./assets/images/services/bathroom@2x.webp 2x" type="image/webp" width="596" height="428">
-                        <img class="services__img" srcset="./assets/images/services/bathroom.png 1x, ./assets/images/services/bathroom@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
+                        <source srcset="./assets/images/services/bathroom.webp 1x,./assets/images/services/bathroom@2x.webp 2x" type="image/webp">
+                        <img class="services__img" srcset="./assets/images/services/bathroom.png 1x, ./assets/images/services/bathroom@2x.png 2x" alt="Kitchen Remodeling" decoding="async">
                       </picture>
                       <div class="services__item-footer">
                         <p class="services__title">Bathroom Remodeling</p>
@@ -187,8 +188,8 @@
                   <div class="services__item">
                     <a href="./services/room-additions.html">   
                        <picture>
-                        <source srcset="./assets/images/services/room.webp 1x,./assets/images/services/room@2x.webp 2x" type="image/webp" width="596" height="428">
-                        <img class="services__img" srcset="./assets/images/services/room.png 1x, ./assets/images/services/room@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
+                        <source srcset="./assets/images/services/room.webp 1x,./assets/images/services/room@2x.webp 2x" type="image/webp">
+                        <img class="services__img" srcset="./assets/images/services/room.png 1x, ./assets/images/services/room@2x.png 2x" alt="Kitchen Remodeling" decoding="async">
                       </picture>
                       <div class="services__item-footer">
                         <p class="services__title">Room Additions</p>
@@ -206,8 +207,8 @@
                     <div class="services__item">
                       <a href="./services/roof-stucco-paint.html">   
                         <picture>
-                          <source srcset="./assets/images/services/roof.webp 1x,./assets/images/services/roof@2x.webp 2x" type="image/webp" width="596" height="428">
-                          <img class="services__img" srcset="./assets/images/services/roof.png 1x, ./assets/images/services/roof@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
+                          <source srcset="./assets/images/services/roof.webp 1x,./assets/images/services/roof@2x.webp 2x" type="image/webp">
+                          <img class="services__img" srcset="./assets/images/services/roof.png 1x, ./assets/images/services/roof@2x.png 2x" alt="Kitchen Remodeling" decoding="async">
                         </picture>
                         <div class="services__item-footer">
                           <p class="services__title">Roof, Stucco & Paint</p>
@@ -218,8 +219,8 @@
                     <div class="services__item">
                       <a href="./services/landscaping-patios.html">   
                         <picture>
-                        <source srcset="./assets/images/services/landscape.webp 1x,./assets/images/services/landscape@2x.webp 2x" type="image/webp" width="596" height="428">
-                        <img class="services__img" srcset="./assets/images/services/landscape.png 1x, ./assets/images/services/landscape@2x.png 2x" alt="Kitchen Remodeling" width="596" height="428" decoding="async">
+                        <source srcset="./assets/images/services/landscape.webp 1x,./assets/images/services/landscape@2x.webp 2x" type="image/webp">
+                        <img class="services__img" srcset="./assets/images/services/landscape.png 1x, ./assets/images/services/landscape@2x.png 2x" alt="Kitchen Remodeling" decoding="async">
                       </picture>
                       <div class="services__item-footer">
                           <p class="services__title">Landscaping & Patios</p>
@@ -243,8 +244,8 @@
           <div class="container">
             <div class="contact-us__inner">
               <picture>
-                <source srcset="./assets/images/contact-us/contact-us-map.webp 1x,./assets/images/contact-us/contact-us-map@2x.webp 2x" type="image/webp" width="742" height="372">
-                <img class="contact-us__img" srcset="./assets/images/contact-us/contact-us-map.png 1x, ./assets/images/contact-us/contact-us-map@2x.png 2x" alt="Our Location" width="742" height="372" decoding="async" aria-hidden="true">
+                <source srcset="./assets/images/contact-us/contact-us-map.webp 1x,./assets/images/contact-us/contact-us-map@2x.webp 2x" type="image/webp">
+                <img class="contact-us__img" srcset="./assets/images/contact-us/contact-us-map.png 1x, ./assets/images/contact-us/contact-us-map@2x.png 2x" alt="Our Location" decoding="async" aria-hidden="true">
               </picture>
               <div class="contact-us__info">
                 <dl class="contact-us__contacts">
@@ -255,10 +256,10 @@
                   <dt>Phone</dt>
                   <dd><a class="link" href="tel:+15512607818">(551) 260 78 18</a></dd>
                 </dl>
-                <ul class="contact-us__media">
-                  <li><a href="#"><span class="contact-us__media-icon contact-us__media-icon_facebook"></span></a></li>
-                  <li><a href="#"><span class="contact-us__media-icon contact-us__media-icon_instagram"></span></a></li>
-                </ul>
+                <!-- <ul class="contact-us__media">
+                  <li><a href="#"><span class="contact-us__media-icon contact-us__media-icon_facebook" role="link" aria-label="Link to our Facebook"></span></a></li>
+                  <li><a href="#"><span class="contact-us__media-icon contact-us__media-icon_instagram" role="link" aria-label="Link to our Instagram"></span></a></li>
+                </ul> -->
               </div>
             </div>
           </div>

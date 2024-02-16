@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
         controlsContainer: '.js-feedbacks-slider-controls',
         nav: false,
         responsive: {
-            1064: {
-                items: 3
+            1266: {
+                items: 3,
             },
             780: {
-                items: 2
+                items: 2,
             },
             320: {
                 items: 1,

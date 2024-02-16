@@ -54,5 +54,5 @@ function handleCalcBudget() {
     const minVal = document.querySelector('.js-calc-min-value');
     const maxVal = document.querySelector('.js-calc-max-value');
 
-    calculateBudgetRandge(selectedSpaces, range, minVal, maxVal);
+    calculateBudgetRange(selectedSpaces, range, minVal, maxVal);
 }

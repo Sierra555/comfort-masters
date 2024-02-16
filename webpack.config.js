@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -8,12 +9,14 @@ module.exports = {
     style: './assets/style.scss',
   },
   
- output: {
+  output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  
   watch: true,
-  devtool: "source-map",
+  devtool: 'source-map',
+  
   module: {
     rules: [
       // SCSS
@@ -57,4 +60,11 @@ module.exports = {
       filename: 'css/styles.css',
     }),
   ],
+
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new CssMinimizerPlugin(),
+    ],
+  },
 };

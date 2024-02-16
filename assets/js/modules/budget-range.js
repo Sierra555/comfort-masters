@@ -1,85 +1,65 @@
 const spacesBudget = [
-    roomReconstruction = {
+    {
+        space: 'Room Reconstruction',
         services: ['Attic', 'Basement', 'Bedroom', 'Foyer', 'Laundry', 'Living Space', 'Garage', 'Kitchen'],
-        budget: {
-            minValue: 5000,
-            maxValue: 10000
-        }
+        budget: { minValue: 5000, maxValue: 10000 }
     },
-    bathroomReconstruction = {
+    {
+        space: 'Bathroom Reconstruction',
         services: ['Bathroom'],
-        budget: {
-            minValue: 7000,
-            maxValue: 15000
-        }
+        budget: { minValue: 7000, maxValue: 15000 }
     },
-    roomAdditions = {
+    {
+        space: 'Room Additions',
         services: ['Room Additions'],
-        budget: {
-            minValue: 8000,
-            maxValue: 20000
-        }
+        budget: { minValue: 8000, maxValue: 20000 }
     },
-    roofReconstructions = {
+    {
+        space: 'Roof Reconstructions',
         services: ['Roofing'],
-        budget: {
-            minValue: 500,
-            maxValue: 30000
-        }
+        budget: { minValue: 500, maxValue: 30000 }
     },
-    stucco = {
+    {
+        space: 'Stucco',
         services: ['Stucco', 'Yard', 'House Exterior'],
-        budget: {
-            minValue: 1000,
-            maxValue: 3000
-        }
+        budget: { minValue: 1000, maxValue: 3000 }
     },
-    painting = {
+    {
+        space: 'Painting',
         services: ['Painting'],
-        budget: {
-            minValue: 2000,
-            maxValue: 5000
-        }
+        budget: { minValue: 2000, maxValue: 5000 }
     },
-    wholeHouse = {
+    {
+        space: 'Whole House',
         services: ['Whole Home'],
-        budget: {
-            minValue: 20000,
-            maxValue: 50000
-        }
+        budget: { minValue: 20000, maxValue: 50000 }
     },
-    somethingElse = {
+    {
+        space: 'Something Else',
         services: ['Something Else'],
-        budget: {
-            minValue: 0,
-            maxValue: 0
-        }
+        budget: { minValue: 200, maxValue: 1000 }
     },
-]
+];
 
-function calculateBudgetRandge(selectedSpaces, range, minVal, maxVal) {
-   const min = Array.from(selectedSpaces).reduce((acc, currentVal) => {
-    for(let i=0; i < spacesBudget.length; i++) {
-        const servicesLowerCase = spacesBudget[i].services.map(service => service.toLowerCase());
+function calculateBudgetRange(selectedSpaces, range, minVal, maxVal) {
+    const selectedSpacesLowerCase = Array.from(selectedSpaces).map(space => space.dataset.space.toLowerCase());
 
-        if (servicesLowerCase.includes(currentVal.dataset.space.toLowerCase())){
-           return acc + spacesBudget[i].budget.minValue;
-        } 
-    }
-        return acc;
-    }, 0);
+    const hasWholeHouseService = selectedSpacesLowerCase.some(space => spacesBudget.find(entry => entry.space === 'Whole House').services.includes(space));
 
-    const max = Array.from(selectedSpaces).reduce((acc, currentVal) => {
-        for(let i=0; i < spacesBudget.length; i++) {
-            const servicesLowerCase = spacesBudget[i].services.map(service => service.toLowerCase());
-
-            if (servicesLowerCase.includes(currentVal.dataset.space.toLowerCase())){
-                return acc + spacesBudget[i].budget.maxValue;
-            } 
+    const calculateTotal = (key) => {
+        if (hasWholeHouseService) {
+            const wholeHouseBudget = spacesBudget.find(entry => entry.space === 'Whole House').budget[key];
+            return wholeHouseBudget;
         }
 
-        return acc;
-    }, 0);
+        return selectedSpacesLowerCase.reduce((acc, currentVal) => {
+            const spaceBudget = spacesBudget.find(entry => entry.services.some(service => service.toLowerCase() === currentVal));
+            return acc + (spaceBudget ? spaceBudget.budget[key] : 0);
+        }, 0);
+    };
+
+    const min = calculateTotal('minValue');
+    const max = calculateTotal('maxValue');
 
     minVal.textContent = `$ ${min}`;
     maxVal.textContent = `$ ${max}`;
