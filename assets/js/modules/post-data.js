@@ -43,7 +43,7 @@ async function handleFormSubmit(event) {
     //     });
 }
 
-function getSelectedSpaces(formData) {
+function getSelectedSpaces() {
     const listItems = document.querySelectorAll('.js-spaces-list li');
     const selectedSpaces = Array.from(listItems).map(item => item.getAttribute('data-space')).join(',');
     return selectedSpaces;

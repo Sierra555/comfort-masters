@@ -1,3 +1,9 @@
+const createRenovationButton = document.querySelector('.js-create-block-btn');
+import { handleStepButtonClick } from './form-navigation.js';
+import { handleFilesUpload } from './upload-files.js';
+
+createRenovationButton.addEventListener('click', createRenovationBlock);
+
 function createRenovationBlock() {
     const selectedSpaces = document.querySelectorAll('.js-spaces-list li');
     const container = document.querySelector('.js-estimation-form');

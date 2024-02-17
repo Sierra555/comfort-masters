@@ -1,15 +1,7 @@
 const stepBtns = document.querySelectorAll('.js-step-btn');
 const getEstimBtn = document.querySelector('.js-get-estim-btn');
-const lastStep = document.querySelector('.js-last-step');
-const calcBudgetBtn = document.querySelector('.js-calc-budget');
 
-stepBtns.forEach(button => {
-    button.addEventListener('click', handleStepButtonClick);
-});
-getEstimBtn.addEventListener('click', handleStepButtonClick);
-calcBudgetBtn.addEventListener('click', handleCalcBudget);
-
-function handleStepButtonClick(event) {
+export const handleStepButtonClick = (event) => {
     const currentBtn = event.currentTarget;
     const currentStepNum = parseInt(currentBtn.getAttribute('data-step'));
     const currentStep = document.querySelector(`.js-step-${currentStepNum}`);
@@ -48,11 +40,9 @@ function handleStepButtonClick(event) {
     }
 }
 
-function handleCalcBudget() {
-    const selectedSpaces = document.querySelectorAll('.js-spaces-list li');
-    const range = document.querySelector('.js-budget-value');
-    const minVal = document.querySelector('.js-calc-min-value');
-    const maxVal = document.querySelector('.js-calc-max-value');
 
-    calculateBudgetRange(selectedSpaces, range, minVal, maxVal);
-}
+stepBtns.forEach(button => {
+    button.addEventListener('click', handleStepButtonClick);
+});
+
+getEstimBtn.addEventListener('click', handleStepButtonClick);

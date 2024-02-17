@@ -7,6 +7,12 @@ containers.forEach(container => {
     container.querySelectorAll('.js-clear-input-btn').forEach(btn => btn.addEventListener('click', handleClearButtonClick));
 });
 
+export const toggleErrorMessage = (input, isAdd) => {
+    const errorMessageElement = input.parentElement.nextElementSibling;
+    errorMessageElement.classList.toggle('visually-hidden', !isAdd);
+    input.classList.toggle('error-alert', isAdd);
+}
+
 function handleInput(e) {
     const input = e.target;
     const closestClearBtn = input.parentElement.querySelector('.js-clear-input-btn');
@@ -42,12 +48,6 @@ function handleClearButtonClick(e) {
         clearBtn.classList.remove('is-active');
         addressList.innerHTML = '';
     }
-}
-
-function toggleErrorMessage(input, isAdd) {
-    const errorMessageElement = input.parentElement.nextElementSibling;
-    errorMessageElement.classList.toggle('visually-hidden', !isAdd);
-    input.classList.toggle('error-alert', isAdd);
 }
 
 function validateInput(input) {

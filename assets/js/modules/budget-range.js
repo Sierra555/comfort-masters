@@ -1,3 +1,16 @@
+const calcBudgetBtn = document.querySelector('.js-calc-budget');
+
+calcBudgetBtn.addEventListener('click', handleCalcBudget);
+
+function handleCalcBudget() {
+    const selectedSpaces = document.querySelectorAll('.js-spaces-list li');
+    const range = document.querySelector('.js-budget-value');
+    const minVal = document.querySelector('.js-calc-min-value');
+    const maxVal = document.querySelector('.js-calc-max-value');
+
+    calculateBudgetRange(selectedSpaces, range, minVal, maxVal);
+}
+
 const spacesBudget = [
     {
         space: 'Room Reconstruction',

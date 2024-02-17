@@ -1,4 +1,6 @@
-function handleFilesUpload() {
+import {toggleErrorMessage} from './handle-input.js';
+
+export const handleFilesUpload = () =>{
     const container = document.querySelector('.js-estimation-form');
     const maxFileSize = 1024 * 1024 * 5;
     const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/heic'];
