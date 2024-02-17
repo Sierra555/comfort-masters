@@ -57,7 +57,10 @@ const spacesBudget = [
 function calculateBudgetRange(selectedSpaces, range, minVal, maxVal) {
     const selectedSpacesLowerCase = Array.from(selectedSpaces).map(space => space.dataset.space.toLowerCase());
 
-    const hasWholeHouseService = selectedSpacesLowerCase.some(space => spacesBudget.find(entry => entry.space === 'Whole House').services.includes(space));
+    const hasWholeHouseService = selectedSpacesLowerCase.some(space =>
+        spacesBudget.find(entry => entry.space === 'Whole House').services
+          .some(wholeHouseService => wholeHouseService.toLowerCase() === space)
+      );    
 
     const calculateTotal = (key) => {
         if (hasWholeHouseService) {
@@ -74,7 +77,7 @@ function calculateBudgetRange(selectedSpaces, range, minVal, maxVal) {
     const min = calculateTotal('minValue');
     const max = calculateTotal('maxValue');
 
-    minVal.textContent = `$ ${min}`;
-    maxVal.textContent = `$ ${max}`;
+    minVal.textContent = `$ ${min.toLocaleString()}`;
+    maxVal.textContent = `$ ${max.toLocaleString()}`;
     range.textContent = `${minVal.textContent} - ${maxVal.textContent}`;
 }
