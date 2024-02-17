@@ -6,6 +6,7 @@ module.exports = {
   mode: 'development',
   entry: {
     estimation: './assets/js/estimation/script.js',
+    services: './assets/js/services/script.js',
     main: './assets/js/main/script.js',
     style: './assets/style.scss',
   },
