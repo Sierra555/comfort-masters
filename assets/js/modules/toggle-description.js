@@ -24,18 +24,18 @@ function createRenovationBlock() {
                             <div class="estimation__col js-renovation-form-container">
                             <div class="renovation js-renovation-form">
                                 <div class="input-container">
-                                    <input class="input input_bordered js-text-input js-space-name-input" type="text name="spaceName" id="name" aria-label="Space name" placeholder="${spaceContent}" maxlength="50">
+                                    <input class="input input_bordered js-text-input js-space-name-input" type="text id="name" aria-label="Space name" placeholder="${spaceContent}" maxlength="50">
                                     <button type="button" class="clear-text-btn js-clear-input-btn"></button>
                                 </div>
                                 <p>Describe this space and what you want to do with it</p>
                                 <div class="textarea-container">
-                                    <textarea class="input input_bordered textarea js-text-input js-space-desc-textare" name="spaceDescription" id="description" placeholder="Where is it? What's it like now? What's your idea outcome?" aria-label="Describe your space" maxlength="200"></textarea>
+                                    <textarea class="input input_bordered textarea js-text-input js-space-desc-textare" id="description" placeholder="Where is it? What's it like now? What's your idea outcome?" aria-label="Describe your space" maxlength="200"></textarea>
                                     <button type="button" class="clear-text-btn js-clear-input-btn"></button>
                                 </div>
                                     <p>Upload photos</p>
                                 <div class="drag-n-drop" tabindex="0">
                                     <label for="photo-upload-input" class="js-upload-files-label">Drag and drop photo or <u>choose files</u></label>
-                                    <input accept="application/pdf,image/jpeg,image/png,image/heic" class="js-upload-files-input" hidden id="photo-upload-input" multiple type="file" name="uploadedFiles">
+                                    <input accept="application/pdf,image/jpeg,image/png,image/heic" class="js-upload-files-input" hidden id="photo-upload-input" multiple type="file">
                                 </div>
                                 <p class="error-message visually-hidden">We accept: .pdf, .jpeg, .png, .heic</p>
                                 <ul class="upload-files-list js-upload-files-list"></ul>
