@@ -686,7 +686,7 @@ function createRenovationBlock() {
                                 </div>
                                 <p>Describe this space and what you want to do with it</p>
                                 <div class="textarea-container">
-                                    <textarea class="input input_bordered textarea js-text-input js-space-desc-textare" id="description" placeholder="Where is it? What's it like now? What's your idea outcome?" aria-label="Describe your space" maxlength="200"></textarea>
+                                    <textarea class="input input_bordered textarea js-text-input js-space-desc-textarea" id="description" placeholder="Where is it? What's it like now? What's your idea outcome?" aria-label="Describe your space" maxlength="200"></textarea>
                                     <button type="button" class="clear-text-btn js-clear-input-btn"></button>
                                 </div>
                                     <p>Upload photos</p>

@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menuLinks.forEach(link => {
           link.addEventListener('click', () => {
             menu.classList.remove('menu_active');
+            hamburger.classList.toggle('active');
           });
         });
     
