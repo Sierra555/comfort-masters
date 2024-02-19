@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Comfort Masters</title>
-  <link rel="icon" href="data:,">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" href="./assets/images/favicons/favicon-light.png" type="image/x-icon" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="./assets/images/favicons/favicon-dark.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="./dist/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
 </head>
@@ -16,7 +18,7 @@
       <div class="header__inner">
         <div class="header__wrap">
           <a class="header__logo" href="/" aria-label="Home page">
-            <img srcset="./assets/images/logo.png 1x, ./assets/images/logo@2x.png 2x" alt="Comfort Masters">
+            <img srcset="./assets/images/logo/logo.png 1x, ./assets/images/logo/logo@2x.png 2x" alt="Comfort Masters">
           </a>
           <button class="header__hamburger js-menu-hamburger" aria-controls="header-menu" aria-expanded="false" type="button">
             <span class="header__hamburger-text visually-hidden">Menu</span>
@@ -42,8 +44,9 @@
   <main>
     <section class="first-screen" aria-labelledby="first-screen-title">
       <video class="first-screen-video" autoplay loop muted preload="auto">
-        <source src="./assets/videos/first-screen.webm" type="video/webm">
-        <source src="./assets/videos/first-screen.mp4" type="video/mp4">
+        <source src="./assets/videos/first-screen.webm" type="video/webm" media="(min-width:768px)">
+        <source src="./assets/videos/first-screen.mp4" type="video/mp4" media="(min-width:768px)">
+        <source src="./assets/videos/first-screen-mob.mp4" type="video/mp4">
       </video>
       <div class="container">
         <div class="first-screen__content">
