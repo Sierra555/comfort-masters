@@ -29,8 +29,33 @@
             bottom: 70px;
         }
 
-    &__hero-wrapper {
-        padding-bottom: 70px;
+    &__wrapper {
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 1px;
+            height: 100%;
+            background-color: hsla(40, 17%, 77%, 1);
+            top: 0;
+        }
+
+        &::before {
+            left: 0;
+        }
+
+        &::after {
+            right: 0;
+        }
+
+        &_pb_70 {
+            padding-bottom: 70px;
+        }
     }
 
     &__heading {
@@ -128,8 +153,10 @@
             bottom: 117px;
         }
 
-        &__hero-wrapper {
-            padding-bottom: 0;
+        &__wrapper {
+            &_pb_70 {
+                padding-bottom: 0;
+            }
         }
 
         &__heading {

@@ -5,6 +5,15 @@
     font-weight: 500;
     border-bottom: var(--border-primary);
 
+    &::after {
+        content: '';
+        background-color: rgba(0, 0, 0, 0.2);
+        height: auto;
+        inset: 0;
+        position: absolute;
+        z-index: 1;
+    }
+
     &__content {
         position: relative;
         z-index: 5;
