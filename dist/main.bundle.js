@@ -1,7 +1,10 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 436:
+/***/ "./assets/js/modules/main.js":
+/*!***********************************!*\
+  !*** ./assets/js/modules/main.js ***!
+  \***********************************/
 /***/ (() => {
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,7 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /***/ }),
 
-/***/ 857:
+/***/ "./assets/js/modules/tiny-slider.js":
+/*!******************************************!*\
+  !*** ./assets/js/modules/tiny-slider.js ***!
+  \******************************************/
 /***/ (() => {
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -115,14 +121,29 @@ document.addEventListener('DOMContentLoaded', function () {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/* harmony import */ var _modules_tiny_slider_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(857);
+/*!**********************************!*\
+  !*** ./assets/js/main/script.js ***!
+  \**********************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modules_tiny_slider_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modules/tiny-slider.js */ "./assets/js/modules/tiny-slider.js");
 /* harmony import */ var _modules_tiny_slider_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modules_tiny_slider_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _modules_main_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(436);
+/* harmony import */ var _modules_main_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/main.js */ "./assets/js/modules/main.js");
 /* harmony import */ var _modules_main_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_main_js__WEBPACK_IMPORTED_MODULE_1__);
 
 
