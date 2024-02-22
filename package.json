@@ -24,7 +24,7 @@
   "dependencies": {
     "apispreadsheets": "^3.0.3",
     "google-auth-library": "^9.6.3",
-    "googleapis": "^132.0.0",
+    "googleapis": "^133.0.0",
     "tiny-slider": "^2.9.4"
   }
 }
