@@ -1,46 +1,65 @@
-function initGoogleSignIn() {
-    g_id_signin = g_id_signin || [];
-    g_id_signin.push({
-        'callback': handleGoogleSignIn,
-        'client_id': '343870790834-cgpog94euautb7vt8q8e941pl0hodn7u.apps.googleusercontent.com',
-        'auto_prompt': false
-    });
-}
+import {filesArr} from './upload-files';
 
-function initDriveApi() {
-    gapi.load('auth2', function () {
-        gapi.auth2.init({
-            client_id: '343870790834-cgpog94euautb7vt8q8e941pl0hodn7u.apps.googleusercontent.com',
-            scope: 'https://www.googleapis.com/auth/drive.file',
-        });
-    });
-}
-     
 const estimationForm = document.querySelector('.js-estimation-form');
-
 estimationForm.addEventListener('submit', handleFormSubmit);
 
 async function handleFormSubmit(event) {
     event.preventDefault();
-    // initGoogleSignIn();
-    // initDriveApi();
+    event.stopPropagation();
     const selectedSpaces = getSelectedSpaces();
     const formData = new FormData(estimationForm);
     formData.append('selectedSpaces', JSON.stringify(selectedSpaces));
     getSelectedSpacesDescription(formData);
+    const timestamp = new Date().toLocaleString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+    });
+    
+        // try {
+        //     const folderResponse = await postDataToServer('https://www.web.com/api/create-folder', JSON.stringify({ folderName: `${formData.get('userEmail')}(${timestamp})` }), {
+        //         'Content-Type': 'application/json',
+        //     });
 
-    postData(formData);
+        //     const folderInfo = folderResponse.folderInfo;
+        //     formData.append('folderWebLink', folderInfo.webViewLink);
 
-    // uploadFilesToDrive(files)
-    //     .then(fileUrls => {
-    //         console.log('File URLs:', fileUrls);
-    //         const filesArray = fileUrls.map(file => file.webContentLink);
-    //         formData.append('uploadedFiles', JSON.stringify(filesArray));
-    //         postData(formData);
-    //     })
-    //     .catch(error => {
-    //         console.error('Error uploading files to Google Drive:', error);
-    //     });
+        //     await postDataToSpreadsheet(formData);
+
+        //     const filesData = new FormData();
+        //     filesData.append('folderId', folderInfo.id);
+
+        //     filesArr.map(async (file) => {
+        //         filesData.append(`files`, file);
+        //         await postDataToServer('https://www.web.com/api/upload-files', filesData);
+        //     })
+
+        // } catch (error) {
+        //     console.error('Error during server connection:', error);
+        // }
+        
+        if (filesArr && filesArr.length) {
+            const fileReadPromises = filesArr.map(file => new Promise(resolve => {
+                const reader = new FileReader();
+                reader.onload = (e) => resolve({
+                    filename: file.name,
+                    contentType: file.type,
+                    data: e.target.result
+                });
+                reader.readAsDataURL(file);
+            }));
+        
+            Promise.all(fileReadPromises).then(fileObjs => {
+                formData.append('folderWebLink', JSON.stringify(fileObjs));
+                postDataToSpreadsheet(formData);
+            });
+        } else {
+            postDataToSpreadsheet(formData);
+        }
+
 }
 
 function getSelectedSpaces() {
@@ -52,60 +71,43 @@ function getSelectedSpaces() {
 function getSelectedSpacesDescription(formData) {
     const spaceNameInputs = document.querySelectorAll('.js-space-name-input');
     const spaceDescription = document.querySelectorAll('.js-space-desc-textarea');
-    const fileInputs = document.querySelectorAll('.js-upload-files-inputt');
 
     formData.append('spaceName', Array.from(spaceNameInputs).map((item, index) => `Name (${index + 1}): ${item.value}`));
     formData.append('spaceDescription', Array.from(spaceDescription).map((item, index) => `Description (${index + 1}): ${item.value}`));
-    formData.append('uploadedFiles', Array.from(fileInputs).map((item, index) => `Files (${index + 1}): ${item.files}`));
 }
 
-async function uploadFilesToDrive(files) {
-    const fileUrls = [];
-
+async function postDataToSpreadsheet(formData) {
     try {
-        for (const file of files) {
-            const metadata = {
-                name: file.name,
-            };
-
-            const form = new FormData();
-            form.append('file', file);
-
-            const driveResponse = await gapi.client.drive.files.create({
-                resource: metadata,
-                media: {
-                    mimeType: file.type,
-                    body: form,
-                },
-            });
-
-            const fileData = driveResponse.result;
-            fileUrls.push(fileData);
-            console.log('File URLs:', fileUrls);
-        }
-    } catch (error) {
-        console.error('Error uploading files to Google Drive:', error);
-        throw error;
-    }
-
-    return fileUrls;
-}
-
-async function postData(formData) {
-    try {
-        const response = await fetch('https://api.apispreadsheets.com/data/cruEXgMCQGq0lppK/', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbwUZsIr4ihmI835391VWudSBXtoNMi9QSVKhh2uc-_k-c-TKV4RM4tCbjltt6SScs_5XQ/exec', {
             method: 'POST',
             body: formData,
         });
 
-        if (!response.ok) {
-            console.error('Failed to submit data. Status:', response.status);
-        }
+        console.log(1);
+
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error during form submission:', error);
     }
 }
 
-function handleGoogleSignIn(googleUser) {
-console.log('Google Sign-In Information:', googleUser);
+async function postDataToServer(url, data, headers) {
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: data,
+        });
+
+        if (!response.ok) {
+            const errorResponse = await response.json();
+            console.error('Failed to submit data. Status:', response.status, 'Error:', errorResponse.error);
+            throw new Error('Failed to submit data');
+        }
+
+        return response.json();
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;
+    }
 }
+

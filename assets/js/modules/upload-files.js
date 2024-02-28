@@ -1,6 +1,7 @@
 import {toggleErrorMessage} from './handle-input.js';
+export let filesArr = [];
 
-export const handleFilesUpload = () =>{
+export const handleFilesUpload = () => {
     const container = document.querySelector('.js-estimation-form');
     const maxFileSize = 1024 * 1024 * 5;
     const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/heic'];
@@ -16,6 +17,7 @@ export const handleFilesUpload = () =>{
             case 'change':
                 if (e.target.classList.contains('js-upload-files-input')) {
                     uploadFiles(e.target, maxFileSize, allowedTypes);
+                    Array.from(e.target.files).forEach(file => filesArr.push(file));
                 }
                 break;
 
@@ -23,6 +25,7 @@ export const handleFilesUpload = () =>{
                 if (e.target.classList.contains('js-upload-files-label')) {
                     e.target.files = e.dataTransfer.files;
                     uploadFiles(e.target, maxFileSize, allowedTypes);
+                    Array.from(e.target.files).forEach(file => filesArr.push(file));
                 }
                 break;
         }
@@ -43,8 +46,13 @@ export const handleFilesUpload = () =>{
     
         const removeBtns = inputContainer.querySelectorAll('.js-remove-file-btn');
         removeBtns.forEach(button => {
-            button.addEventListener('click', () => {
-                button.parentElement.remove();
+            button.addEventListener('click', (e) => {
+                const file = e.target.parentElement;
+                filesArr.forEach((fileObj, index) => {
+                    if (fileObj.name == file.textContent) filesArr.splice(index, 1); 
+                });
+
+                file.remove();
             });
         });
     }
@@ -58,5 +66,4 @@ export const handleFilesUpload = () =>{
     
         return true;
     }
-    
 }

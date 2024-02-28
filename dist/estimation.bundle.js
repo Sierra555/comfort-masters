@@ -1,10 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./assets/js/modules/budget-range.js":
-/*!*******************************************!*\
-  !*** ./assets/js/modules/budget-range.js ***!
-  \*******************************************/
+/***/ 968:
 /***/ (() => {
 
 const calcBudgetBtn = document.querySelector('.js-calc-budget');
@@ -94,10 +91,7 @@ function calculateBudgetRange(selectedSpaces, range, minVal, maxVal) {
 
 /***/ }),
 
-/***/ "./assets/js/modules/calendly.js":
-/*!***************************************!*\
-  !*** ./assets/js/modules/calendly.js ***!
-  \***************************************/
+/***/ 855:
 /***/ (() => {
 
 const authToken = 'eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNzA1OTg3ODIxLCJqdGkiOiI2NGEyYzEzZS0xN2IwLTQ5YTUtYWY4NC1iZWIyY2IxNGM4YjUiLCJ1c2VyX3V1aWQiOiJiZDI2ODYyZC00ZmZlLTRhODQtYjZmOS1kNGJhOTJkMWFkMWIifQ.t3FmEIUwd8PMqCrn-K4oAHJfisanCVwgSo1FYlT4a7dBXwfCacZNb191smbYt2mHniKKqNz4gNZ63td84L9Xxg';
@@ -129,79 +123,177 @@ document.querySelectorAll('.js-calendly-popup').forEach(popup => popup.addEventL
 
 /***/ }),
 
-/***/ "./assets/js/modules/form-navigation.js":
-/*!**********************************************!*\
-  !*** ./assets/js/modules/form-navigation.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ 763:
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   handleStepButtonClick: () => (/* binding */ handleStepButtonClick)
-/* harmony export */ });
-const stepBtns = document.querySelectorAll('.js-step-btn');
-const getEstimBtn = document.querySelector('.js-get-estim-btn');
+const autocompleteInput = document.querySelector('.js-address-input');
+const autocompleteList = document.querySelector('.js-address-list');
 
-const handleStepButtonClick = (event) => {
-    const currentBtn = event.currentTarget;
-    const currentStepNum = parseInt(currentBtn.getAttribute('data-step'));
-    const currentStep = document.querySelector(`.js-step-${currentStepNum}`);
+async function getAutocompleteOptions(query) {
+    const apiUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&limit=5&countrycodes=us&accept-language=en`;
 
-    if (event.target.classList.contains('js-skip-btn')) {
-        currentStep.style.display = 'none';
-        document.querySelector('.js-last-step').style.display = 'block';
-        return;
-    } 
-    
-    let targetStepNum;
+    try {
+        const response = await fetch(apiUrl);
 
-    if (currentBtn.classList.contains('js-next-step-btn')) {
-        targetStepNum = currentStepNum + 1;
-    } else if (currentBtn.classList.contains('js-prev-step-btn')) {
-        targetStepNum = currentStepNum - 1;
-    }
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
 
-    const targetStep = document.querySelector(`.js-step-${targetStepNum}`);
-    const progressBar = targetStep.querySelector('.js-progress-bar');
-    const initialWidthMob = 45;
-    const initialWidthDesk = 163;
+        const data = await response.json();
+        const suggestions = data.map(result => result.display_name);
 
-    if (currentStep) {
-        currentStep.style.display = 'none';
-    }
-
-    if (targetStep) {
-        targetStep.style.display = 'block';
-    }
-
-    progressBar.style.width = `${initialWidthMob * targetStepNum}px`;
-
-    if (window.innerWidth >= 768) {
-        progressBar.style.width = `${initialWidthDesk * targetStepNum}px`;
+        displayAutocompleteOptions(suggestions);
+    } catch (error) {
+        console.error('Error fetching autocomplete options:', error);
     }
 }
 
+function displayAutocompleteOptions(options) {
 
-stepBtns.forEach(button => {
-    button.addEventListener('click', handleStepButtonClick);
+    autocompleteList.textContent = '';
+
+    options.forEach(option => {
+        const listItem = document.createElement('li');
+        listItem.textContent = option;
+        autocompleteList.appendChild(listItem);
+
+        listItem.addEventListener('click', () => {
+            autocompleteInput.value = option;
+            autocompleteList.textContent = '';
+        });
+    });
+}
+
+autocompleteInput.addEventListener('input', () => {
+    getAutocompleteOptions(autocompleteInput.value);
 });
-
-getEstimBtn.addEventListener('click', handleStepButtonClick);
 
 /***/ }),
 
-/***/ "./assets/js/modules/handle-input.js":
-/*!*******************************************!*\
-  !*** ./assets/js/modules/handle-input.js ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ 18:
+/***/ (() => {
 
+const spacesContainer = document.querySelector('.js-spaces-container');
+const spacesList = spacesContainer.querySelector('ul');
+const spacesOptions = document.querySelector('.js-spaces-options-container');
+
+function createListItem(value) {
+    const listItem = document.createElement('li');
+    listItem.textContent = value;
+    listItem.dataset.space = value;
+
+    const removeButton = document.createElement('button');
+    removeButton.type = 'button';
+    removeButton.ariaLabel = 'Remove item button';
+    removeButton.classList.add('clear-text-btn', 'is-active', 'js-clear-input-btn');
+
+    listItem.append(removeButton);
+    spacesList.append(listItem);
+
+    removeButton.addEventListener('click', () => {
+        const matchingButton = Array.from(spacesOptions.querySelectorAll('.spaces__item')).find(option => option.textContent == listItem.dataset.space);
+
+        if(matchingButton) {
+            matchingButton.classList.remove('is-disabled');
+            matchingButton.removeAttribute('disabled');
+        }
+
+        listItem.remove();
+
+        if (spacesList.querySelectorAll('li').length === 0) {
+            spacesContainer.classList.remove('is-active');
+            spacesContainer.dataset.isValid = 'false';
+        }
+    });
+}
+
+function handleSpacesItemClick(button) {
+    createListItem(button.textContent);
+    button.classList.add('is-disabled');
+    button.setAttribute('disabled', 'true');
+    spacesContainer.dataset.isValid = 'true';
+
+    if (!spacesContainer.classList.contains('is-active')) {
+        spacesContainer.classList.add('is-active');
+    }
+}
+
+spacesOptions.addEventListener('click', (event) => {
+    const clickedButton = event.target;
+    if (clickedButton.classList.contains('spaces__item')) {
+        handleSpacesItemClick(clickedButton);
+    }
+});
+
+
+/***/ }),
+
+/***/ 348:
+/***/ (() => {
+
+const surveyContainer = document.querySelector('.js-survey-container');
+
+  surveyContainer.addEventListener('input', (e) => {
+    if (e.target.classList.contains('js-survey-option')) {
+        e.target.dataset.isValid = e.target.checked;
+    };
+  });
+
+  const targetNode = document.documentElement;
+
+  const observer = new MutationObserver(function(mutationsList) {
+      for (const mutation of mutationsList) {
+          if (mutation.type === 'attributes') {
+              if (mutation.attributeName === 'data-is-valid') {
+                  const closestValidateData = mutation.target.closest('.js-validate-data');
+                  const closestNextBtn = closestValidateData.querySelector('.js-next-step-btn');
+
+                  if (closestNextBtn) {
+                      closestNextBtn.disabled = mutation.target.dataset.isValid !== 'true';
+                  }
+              }
+          }
+      }
+  });
+
+  const config = { attributes: true, subtree: true };
+  observer.observe(targetNode, config);
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   toggleErrorMessage: () => (/* binding */ toggleErrorMessage)
-/* harmony export */ });
+
+;// CONCATENATED MODULE: ./assets/js/modules/handle-input.js
 const containers = document.querySelectorAll('.js-input-container');
 const addressList = document.querySelector('.js-address-list');
 
@@ -327,108 +419,140 @@ function checkEmailService(email) {
     const domain = email.split('@')[1];
     return validEmailServices.includes(domain);
 }
+;// CONCATENATED MODULE: ./assets/js/modules/upload-files.js
 
-/***/ }),
+let filesArr = [];
 
-/***/ "./assets/js/modules/nominatim.js":
-/*!****************************************!*\
-  !*** ./assets/js/modules/nominatim.js ***!
-  \****************************************/
-/***/ (() => {
+const handleFilesUpload = () => {
+    const container = document.querySelector('.js-estimation-form');
+    const maxFileSize = 1024 * 1024 * 5;
+    const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/heic'];
 
-const autocompleteInput = document.querySelector('.js-address-input');
-const autocompleteList = document.querySelector('.js-address-list');
+    container.addEventListener('change', handleEvent);
+    container.addEventListener('dragover', handleEvent);
+    container.addEventListener('drop', handleEvent);
 
-async function getAutocompleteOptions(query) {
-    const apiUrl = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&limit=5&countrycodes=us&accept-language=en`;
+    function handleEvent(e) {
+        e.preventDefault();
 
-    try {
-        const response = await fetch(apiUrl);
+        switch (e.type) {
+            case 'change':
+                if (e.target.classList.contains('js-upload-files-input')) {
+                    uploadFiles(e.target, maxFileSize, allowedTypes);
+                    Array.from(e.target.files).forEach(file => filesArr.push(file));
+                }
+                break;
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            case 'drop':
+                if (e.target.classList.contains('js-upload-files-label')) {
+                    e.target.files = e.dataTransfer.files;
+                    uploadFiles(e.target, maxFileSize, allowedTypes);
+                    Array.from(e.target.files).forEach(file => filesArr.push(file));
+                }
+                break;
         }
+    }
 
-        const data = await response.json();
-        const suggestions = data.map(result => result.display_name);
+    function uploadFiles(input, maxFileSize, allowedTypes) {
+        const inputContainer = input.closest('.js-renovation-form');
+        const uploadedFiles = inputContainer.querySelector('.js-upload-files-list');
+        toggleErrorMessage(input, false);
+    
+        const validFiles = Array.from(input.files).filter(file => isValidFile(file, input, maxFileSize, allowedTypes));
+    
+        const uploadFilesItems = validFiles.map(file => `
+            <li>${file.name}<button class="clear-text-btn is-active js-remove-file-btn"></button></li>
+        `);
+    
+        uploadedFiles.insertAdjacentHTML('beforeend', uploadFilesItems.join(''));
+    
+        const removeBtns = inputContainer.querySelectorAll('.js-remove-file-btn');
+        removeBtns.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const file = e.target.parentElement;
+                filesArr.forEach((fileObj, index) => {
+                    if (fileObj.name == file.textContent) filesArr.splice(index, 1); 
+                });
 
-        displayAutocompleteOptions(suggestions);
-    } catch (error) {
-        console.error('Error fetching autocomplete options:', error);
+                file.remove();
+            });
+        });
+    }
+
+    function isValidFile(file, input, maxFileSize, allowedTypes) {
+        if (!allowedTypes.includes(file.type) || file.size > maxFileSize) {
+            toggleErrorMessage(input, true);
+            input.value = '';
+            return false;
+        }
+    
+        return true;
     }
 }
 
-function displayAutocompleteOptions(options) {
+;// CONCATENATED MODULE: ./assets/js/modules/post-data.js
 
-    autocompleteList.textContent = '';
 
-    options.forEach(option => {
-        const listItem = document.createElement('li');
-        listItem.textContent = option;
-        autocompleteList.appendChild(listItem);
-
-        listItem.addEventListener('click', () => {
-            autocompleteInput.value = option;
-            autocompleteList.textContent = '';
-        });
-    });
-}
-
-autocompleteInput.addEventListener('input', () => {
-    getAutocompleteOptions(autocompleteInput.value);
-});
-
-/***/ }),
-
-/***/ "./assets/js/modules/post-data.js":
-/*!****************************************!*\
-  !*** ./assets/js/modules/post-data.js ***!
-  \****************************************/
-/***/ (() => {
-
-function initGoogleSignIn() {
-    g_id_signin = g_id_signin || [];
-    g_id_signin.push({
-        'callback': handleGoogleSignIn,
-        'client_id': '343870790834-cgpog94euautb7vt8q8e941pl0hodn7u.apps.googleusercontent.com',
-        'auto_prompt': false
-    });
-}
-
-function initDriveApi() {
-    gapi.load('auth2', function () {
-        gapi.auth2.init({
-            client_id: '343870790834-cgpog94euautb7vt8q8e941pl0hodn7u.apps.googleusercontent.com',
-            scope: 'https://www.googleapis.com/auth/drive.file',
-        });
-    });
-}
-     
 const estimationForm = document.querySelector('.js-estimation-form');
-
 estimationForm.addEventListener('submit', handleFormSubmit);
 
 async function handleFormSubmit(event) {
     event.preventDefault();
-    // initGoogleSignIn();
-    // initDriveApi();
+    event.stopPropagation();
     const selectedSpaces = getSelectedSpaces();
     const formData = new FormData(estimationForm);
     formData.append('selectedSpaces', JSON.stringify(selectedSpaces));
     getSelectedSpacesDescription(formData);
+    const timestamp = new Date().toLocaleString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+    });
+    
+        // try {
+        //     const folderResponse = await postDataToServer('https://www.web.com/api/create-folder', JSON.stringify({ folderName: `${formData.get('userEmail')}(${timestamp})` }), {
+        //         'Content-Type': 'application/json',
+        //     });
 
-    postData(formData);
+        //     const folderInfo = folderResponse.folderInfo;
+        //     formData.append('folderWebLink', folderInfo.webViewLink);
 
-    // uploadFilesToDrive(files)
-    //     .then(fileUrls => {
-    //         console.log('File URLs:', fileUrls);
-    //         const filesArray = fileUrls.map(file => file.webContentLink);
-    //         formData.append('uploadedFiles', JSON.stringify(filesArray));
-    //         postData(formData);
-    //     })
-    //     .catch(error => {
-    //         console.error('Error uploading files to Google Drive:', error);
-    //     });
+        //     await postDataToSpreadsheet(formData);
+
+        //     const filesData = new FormData();
+        //     filesData.append('folderId', folderInfo.id);
+
+        //     filesArr.map(async (file) => {
+        //         filesData.append(`files`, file);
+        //         await postDataToServer('https://www.web.com/api/upload-files', filesData);
+        //     })
+
+        // } catch (error) {
+        //     console.error('Error during server connection:', error);
+        // }
+        
+        if (filesArr && filesArr.length) {
+            const fileReadPromises = filesArr.map(file => new Promise(resolve => {
+                const reader = new FileReader();
+                reader.onload = (e) => resolve({
+                    filename: file.name,
+                    contentType: file.type,
+                    data: e.target.result
+                });
+                reader.readAsDataURL(file);
+            }));
+        
+            Promise.all(fileReadPromises).then(fileObjs => {
+                formData.append('folderWebLink', JSON.stringify(fileObjs));
+                postDataToSpreadsheet(formData);
+            });
+        } else {
+            postDataToSpreadsheet(formData);
+        }
+
 }
 
 function getSelectedSpaces() {
@@ -440,138 +564,99 @@ function getSelectedSpaces() {
 function getSelectedSpacesDescription(formData) {
     const spaceNameInputs = document.querySelectorAll('.js-space-name-input');
     const spaceDescription = document.querySelectorAll('.js-space-desc-textarea');
-    const fileInputs = document.querySelectorAll('.js-upload-files-inputt');
 
     formData.append('spaceName', Array.from(spaceNameInputs).map((item, index) => `Name (${index + 1}): ${item.value}`));
     formData.append('spaceDescription', Array.from(spaceDescription).map((item, index) => `Description (${index + 1}): ${item.value}`));
-    formData.append('uploadedFiles', Array.from(fileInputs).map((item, index) => `Files (${index + 1}): ${item.files}`));
 }
 
-async function uploadFilesToDrive(files) {
-    const fileUrls = [];
-
+async function postDataToSpreadsheet(formData) {
     try {
-        for (const file of files) {
-            const metadata = {
-                name: file.name,
-            };
-
-            const form = new FormData();
-            form.append('file', file);
-
-            const driveResponse = await gapi.client.drive.files.create({
-                resource: metadata,
-                media: {
-                    mimeType: file.type,
-                    body: form,
-                },
-            });
-
-            const fileData = driveResponse.result;
-            fileUrls.push(fileData);
-            console.log('File URLs:', fileUrls);
-        }
-    } catch (error) {
-        console.error('Error uploading files to Google Drive:', error);
-        throw error;
-    }
-
-    return fileUrls;
-}
-
-async function postData(formData) {
-    try {
-        const response = await fetch('https://api.apispreadsheets.com/data/cruEXgMCQGq0lppK/', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbwUZsIr4ihmI835391VWudSBXtoNMi9QSVKhh2uc-_k-c-TKV4RM4tCbjltt6SScs_5XQ/exec', {
             method: 'POST',
             body: formData,
         });
 
+        console.log(1);
+
+    } catch (error) {
+        console.error('Error during form submission:', error);
+    }
+}
+
+async function postDataToServer(url, data, headers) {
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: data,
+        });
+
         if (!response.ok) {
-            console.error('Failed to submit data. Status:', response.status);
+            const errorResponse = await response.json();
+            console.error('Failed to submit data. Status:', response.status, 'Error:', errorResponse.error);
+            throw new Error('Failed to submit data');
         }
+
+        return response.json();
     } catch (error) {
         console.error('Error:', error);
+        throw error;
     }
 }
 
-function handleGoogleSignIn(googleUser) {
-console.log('Google Sign-In Information:', googleUser);
-}
 
+// EXTERNAL MODULE: ./assets/js/modules/budget-range.js
+var budget_range = __webpack_require__(968);
+;// CONCATENATED MODULE: ./assets/js/modules/form-navigation.js
+const stepBtns = document.querySelectorAll('.js-step-btn');
+const getEstimBtn = document.querySelector('.js-get-estim-btn');
 
-/***/ }),
+const handleStepButtonClick = (event) => {
+    const currentBtn = event.currentTarget;
+    const currentStepNum = parseInt(currentBtn.getAttribute('data-step'));
+    const currentStep = document.querySelector(`.js-step-${currentStepNum}`);
 
-/***/ "./assets/js/modules/spaces.js":
-/*!*************************************!*\
-  !*** ./assets/js/modules/spaces.js ***!
-  \*************************************/
-/***/ (() => {
+    if (event.target.classList.contains('js-skip-btn')) {
+        currentStep.style.display = 'none';
+        document.querySelector('.js-last-step').style.display = 'block';
+        return;
+    } 
+    
+    let targetStepNum;
 
-const spacesContainer = document.querySelector('.js-spaces-container');
-const spacesList = spacesContainer.querySelector('ul');
-const spacesOptions = document.querySelector('.js-spaces-options-container');
+    if (currentBtn.classList.contains('js-next-step-btn')) {
+        targetStepNum = currentStepNum + 1;
+    } else if (currentBtn.classList.contains('js-prev-step-btn')) {
+        targetStepNum = currentStepNum - 1;
+    }
 
-function createListItem(value) {
-    const listItem = document.createElement('li');
-    listItem.textContent = value;
-    listItem.dataset.space = value;
+    const targetStep = document.querySelector(`.js-step-${targetStepNum}`);
+    const progressBar = targetStep.querySelector('.js-progress-bar');
+    const initialWidthMob = 45;
+    const initialWidthDesk = 163;
 
-    const removeButton = document.createElement('button');
-    removeButton.type = 'button';
-    removeButton.ariaLabel = 'Remove item button';
-    removeButton.classList.add('clear-text-btn', 'is-active', 'js-clear-input-btn');
+    if (currentStep) {
+        currentStep.style.display = 'none';
+    }
 
-    listItem.append(removeButton);
-    spacesList.append(listItem);
+    if (targetStep) {
+        targetStep.style.display = 'block';
+    }
 
-    removeButton.addEventListener('click', () => {
-        const matchingButton = Array.from(spacesOptions.querySelectorAll('.spaces__item')).find(option => option.textContent == listItem.dataset.space);
+    progressBar.style.width = `${initialWidthMob * targetStepNum}px`;
 
-        if(matchingButton) {
-            matchingButton.classList.remove('is-disabled');
-            matchingButton.removeAttribute('disabled');
-        }
-
-        listItem.remove();
-
-        if (spacesList.querySelectorAll('li').length === 0) {
-            spacesContainer.classList.remove('is-active');
-            spacesContainer.dataset.isValid = 'false';
-        }
-    });
-}
-
-function handleSpacesItemClick(button) {
-    createListItem(button.textContent);
-    button.classList.add('is-disabled');
-    button.setAttribute('disabled', 'true');
-    spacesContainer.dataset.isValid = 'true';
-
-    if (!spacesContainer.classList.contains('is-active')) {
-        spacesContainer.classList.add('is-active');
+    if (window.innerWidth >= 768) {
+        progressBar.style.width = `${initialWidthDesk * targetStepNum}px`;
     }
 }
 
-spacesOptions.addEventListener('click', (event) => {
-    const clickedButton = event.target;
-    if (clickedButton.classList.contains('spaces__item')) {
-        handleSpacesItemClick(clickedButton);
-    }
+
+stepBtns.forEach(button => {
+    button.addEventListener('click', handleStepButtonClick);
 });
 
-
-/***/ }),
-
-/***/ "./assets/js/modules/toggle-description.js":
-/*!*************************************************!*\
-  !*** ./assets/js/modules/toggle-description.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _form_navigation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form-navigation.js */ "./assets/js/modules/form-navigation.js");
-/* harmony import */ var _upload_files_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./upload-files.js */ "./assets/js/modules/upload-files.js");
+getEstimBtn.addEventListener('click', handleStepButtonClick);
+;// CONCATENATED MODULE: ./assets/js/modules/toggle-description.js
 const createRenovationButton = document.querySelector('.js-create-block-btn');
 
 
@@ -608,8 +693,8 @@ function createRenovationBlock() {
                                 </div>
                                     <p>Upload photos</p>
                                 <div class="drag-n-drop" tabindex="0">
-                                    <label for="photo-upload-input" class="js-upload-files-label">Drag and drop photo or <u>choose files</u></label>
-                                    <input accept="application/pdf,image/jpeg,image/png,image/heic" class="js-upload-files-input" hidden id="photo-upload-input" multiple type="file">
+                                    <label for="photo-upload-input-${index}" class="js-upload-files-label">Drag and drop photo or <u>choose files</u></label>
+                                    <input accept="application/pdf,image/jpeg,image/png,image/heic" class="js-upload-files-input" hidden id="photo-upload-input-${index}" multiple type="file" name="files">
                                 </div>
                                 <p class="error-message visually-hidden">We accept: .pdf, .jpeg, .png, .heic</p>
                                 <ul class="upload-files-list js-upload-files-list"></ul>
@@ -634,221 +719,21 @@ function createRenovationBlock() {
     lastStep.setAttribute('class', `estimation__wrapper estimation_last-step js-last-step js-step-${7 + selectedSpaces.length}`);
     lastStep.querySelector('.js-last-step-prev-btn').setAttribute('data-step', 7 + selectedSpaces.length);
     stepBtns.forEach(button => {
-        button.addEventListener('click', _form_navigation_js__WEBPACK_IMPORTED_MODULE_0__.handleStepButtonClick);
+        button.addEventListener('click', handleStepButtonClick);
     });
-
-    (0,_upload_files_js__WEBPACK_IMPORTED_MODULE_1__.handleFilesUpload)();
+    
+    handleFilesUpload();
 }
 
-
-/***/ }),
-
-/***/ "./assets/js/modules/upload-files.js":
-/*!*******************************************!*\
-  !*** ./assets/js/modules/upload-files.js ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   handleFilesUpload: () => (/* binding */ handleFilesUpload)
-/* harmony export */ });
-/* harmony import */ var _handle_input_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./handle-input.js */ "./assets/js/modules/handle-input.js");
-
-
-const handleFilesUpload = () =>{
-    const container = document.querySelector('.js-estimation-form');
-    const maxFileSize = 1024 * 1024 * 5;
-    const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/heic'];
-
-    container.addEventListener('change', handleEvent);
-    container.addEventListener('dragover', handleEvent);
-    container.addEventListener('drop', handleEvent);
-
-    function handleEvent(e) {
-        e.preventDefault();
-
-        switch (e.type) {
-            case 'change':
-                if (e.target.classList.contains('js-upload-files-input')) {
-                    uploadFiles(e.target, maxFileSize, allowedTypes);
-                }
-                break;
-
-            case 'drop':
-                if (e.target.classList.contains('js-upload-files-label')) {
-                    e.target.files = e.dataTransfer.files;
-                    uploadFiles(e.target, maxFileSize, allowedTypes);
-                }
-                break;
-        }
-    }
-
-    function uploadFiles(input, maxFileSize, allowedTypes) {
-        const inputContainer = input.closest('.js-renovation-form');
-        const uploadedFiles = inputContainer.querySelector('.js-upload-files-list');
-        (0,_handle_input_js__WEBPACK_IMPORTED_MODULE_0__.toggleErrorMessage)(input, false);
-    
-        const validFiles = Array.from(input.files).filter(file => isValidFile(file, input, maxFileSize, allowedTypes));
-    
-        const uploadFilesItems = validFiles.map(file => `
-            <li>${file.name}<button class="clear-text-btn is-active js-remove-file-btn"></button></li>
-        `);
-    
-        uploadedFiles.insertAdjacentHTML('beforeend', uploadFilesItems.join(''));
-    
-        const removeBtns = inputContainer.querySelectorAll('.js-remove-file-btn');
-        removeBtns.forEach(button => {
-            button.addEventListener('click', () => {
-                button.parentElement.remove();
-            });
-        });
-    }
-
-    function isValidFile(file, input, maxFileSize, allowedTypes) {
-        if (!allowedTypes.includes(file.type) || file.size > maxFileSize) {
-            (0,_handle_input_js__WEBPACK_IMPORTED_MODULE_0__.toggleErrorMessage)(input, true);
-            input.value = '';
-            return false;
-        }
-    
-        return true;
-    }
-    
-}
-
-
-/***/ }),
-
-/***/ "./assets/js/modules/validate-data.js":
-/*!********************************************!*\
-  !*** ./assets/js/modules/validate-data.js ***!
-  \********************************************/
-/***/ (() => {
-
-const surveyContainer = document.querySelector('.js-survey-container');
-
-  surveyContainer.addEventListener('input', (e) => {
-    if (e.target.classList.contains('js-survey-option')) {
-        e.target.dataset.isValid = e.target.checked;
-    };
-  });
-
-  const targetNode = document.documentElement;
-
-  const observer = new MutationObserver(function(mutationsList) {
-      for (const mutation of mutationsList) {
-          if (mutation.type === 'attributes') {
-              if (mutation.attributeName === 'data-is-valid') {
-                  const closestValidateData = mutation.target.closest('.js-validate-data');
-                  const closestNextBtn = closestValidateData.querySelector('.js-next-step-btn');
-
-                  if (closestNextBtn) {
-                      closestNextBtn.disabled = mutation.target.dataset.isValid !== 'true';
-                  }
-              }
-          }
-      }
-  });
-
-  const config = { attributes: true, subtree: true };
-  observer.observe(targetNode, config);
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
-/*!****************************************!*\
-  !*** ./assets/js/estimation/script.js ***!
-  \****************************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_post_data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modules/post-data.js */ "./assets/js/modules/post-data.js");
-/* harmony import */ var _modules_post_data_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modules_post_data_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _modules_budget_range_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/budget-range.js */ "./assets/js/modules/budget-range.js");
-/* harmony import */ var _modules_budget_range_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_budget_range_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _modules_toggle_description_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/toggle-description.js */ "./assets/js/modules/toggle-description.js");
-/* harmony import */ var _modules_upload_files_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/upload-files.js */ "./assets/js/modules/upload-files.js");
-/* harmony import */ var _modules_form_navigation_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modules/form-navigation.js */ "./assets/js/modules/form-navigation.js");
-/* harmony import */ var _modules_validate_data_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../modules/validate-data.js */ "./assets/js/modules/validate-data.js");
-/* harmony import */ var _modules_validate_data_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_validate_data_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _modules_handle_input_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../modules/handle-input.js */ "./assets/js/modules/handle-input.js");
-/* harmony import */ var _modules_nominatim_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../modules/nominatim.js */ "./assets/js/modules/nominatim.js");
-/* harmony import */ var _modules_nominatim_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_modules_nominatim_js__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _modules_calendly_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../modules/calendly.js */ "./assets/js/modules/calendly.js");
-/* harmony import */ var _modules_calendly_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_modules_calendly_js__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _modules_spaces_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../modules/spaces.js */ "./assets/js/modules/spaces.js");
-/* harmony import */ var _modules_spaces_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_modules_spaces_js__WEBPACK_IMPORTED_MODULE_9__);
+// EXTERNAL MODULE: ./assets/js/modules/validate-data.js
+var validate_data = __webpack_require__(348);
+// EXTERNAL MODULE: ./assets/js/modules/nominatim.js
+var nominatim = __webpack_require__(763);
+// EXTERNAL MODULE: ./assets/js/modules/calendly.js
+var calendly = __webpack_require__(855);
+// EXTERNAL MODULE: ./assets/js/modules/spaces.js
+var spaces = __webpack_require__(18);
+;// CONCATENATED MODULE: ./assets/js/estimation/script.js
 
 
 

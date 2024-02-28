@@ -34,8 +34,8 @@ function createRenovationBlock() {
                                 </div>
                                     <p>Upload photos</p>
                                 <div class="drag-n-drop" tabindex="0">
-                                    <label for="photo-upload-input" class="js-upload-files-label">Drag and drop photo or <u>choose files</u></label>
-                                    <input accept="application/pdf,image/jpeg,image/png,image/heic" class="js-upload-files-input" hidden id="photo-upload-input" multiple type="file">
+                                    <label for="photo-upload-input-${index}" class="js-upload-files-label">Drag and drop photo or <u>choose files</u></label>
+                                    <input accept="application/pdf,image/jpeg,image/png,image/heic" class="js-upload-files-input" hidden id="photo-upload-input-${index}" multiple type="file" name="files">
                                 </div>
                                 <p class="error-message visually-hidden">We accept: .pdf, .jpeg, .png, .heic</p>
                                 <ul class="upload-files-list js-upload-files-list"></ul>
@@ -62,6 +62,6 @@ function createRenovationBlock() {
     stepBtns.forEach(button => {
         button.addEventListener('click', handleStepButtonClick);
     });
-
+    
     handleFilesUpload();
 }
